@@ -1,13 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokeApp</title>
-</head>
+{% render 'views/partials/head.liquid', title: 'PokeApp' %}
 <body>
 
-<h1>PokeApp</h1>
-    
+<nav>
+    <picture>
+        <scource srcset="../assets/general/PokemonLogo-1.avif" type="image/avif">
+        <scource srcset="../assets/general/PokemonLogo-1.webp" type="image/webp">
+    <img src="../assets/general/PokemonLogo-1.png">
+    </picture>
+    <h1>All Pokemons</h1>
+    <form action="search">
+        <label>Search</label>
+        <input type="search">
+    </form>
+    <button id="pokemon-button"> All Pokemons </button>
+</nav>
+<main>
+    <article>
+        <h2> {{ pokemon.name }}</h2>
+        <img>
+    </article>
+</main>
+
+    {% for p in pokemons %}
+            <article>
+            <h1><a href="/pokemon/{{ forloop.index }}">{{ p.name | capitalize }}</a></h1>
+            <img 
+                src="{{ p.sprite }}" 
+                height="100" 
+                width="100" 
+                alt="{{ p.name }}"
+                onclick="playAudio()">
+                <audio>
+                    <source src="../assets/general/cries_pokemon_latest_7.ogg" typ="audio/ogg" id="audio">
+                </audio>
+
+            </article>
+    {% endfor %}
+
+    <script src="../script/audio.js" defer></script>
+
+
 </body>
 </html>

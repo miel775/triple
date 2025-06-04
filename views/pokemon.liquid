@@ -1,0 +1,15 @@
+{% render 'views/partials/head.liquid', title: 'PokeApp' %}
+
+<a href="/"> Go back </a>
+
+<article>
+    <h2> {{ pokemon.name |  upcase }}</h2>
+    <img 
+    src="{{ pokemon.sprite }}" 
+    height="200" 
+    width="200" 
+    alt="{{ p.name }}"
+    onclick="playAudio()">
+</article>
+
+</article>
