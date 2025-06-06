@@ -8,10 +8,12 @@
     <img src="../assets/general/PokemonLogo-1.png">
     </picture>
     <h1>All Pokemons</h1>
-    <form action="search">
+    {% comment %} in de form element kan je opzoek gaan naar de pokemon {% endcomment %}
+    <form action="search" method="get">
         <label>Search</label>
-        <input type="search">
+        <input type="search" name="p">
     </form>
+
     <button id="pokemon-button"> All Pokemons </button>
 </nav>
 <main>

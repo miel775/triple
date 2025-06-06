@@ -63,7 +63,7 @@ app.get('/pokemon/:id', async (req, res) => {
 });
 
 app.get('/search', async function(req, res) => {
-    const keyword = req.query.q?.toLowerCase();
+    const keyword = req.query.p?.toLowerCase();
 
     // als de keyword er niet tussenstaat dan geeft hij een error aan
     if(!keyword) {
