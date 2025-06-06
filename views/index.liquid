@@ -1,17 +1,19 @@
 {% render 'views/partials/head.liquid', title: 'PokeApp' %}
-<body>
 
+<body>
 <nav>
+
     <picture>
         <scource srcset="../assets/general/PokemonLogo-1.avif" type="image/avif">
         <scource srcset="../assets/general/PokemonLogo-1.webp" type="image/webp">
     <img src="../assets/general/PokemonLogo-1.png">
     </picture>
+    
     <h1>All Pokemons</h1>
     {% comment %} in de form element kan je opzoek gaan naar de pokemon {% endcomment %}
     <form action="search" method="get">
         <label>Search</label>
-        <input type="search" name="p">
+        <input type="search" name="p" required>
     </form>
 
     <button id="pokemon-button"> All Pokemons </button>

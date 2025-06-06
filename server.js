@@ -16,7 +16,7 @@ const apiBase = "https://pokeapi.co/api/v2/";
 
 
 app.get('/', async (req, res) => {
-    const response = await fetch(`${apiBase}/pokemon?limit=25`)
+    const response = await fetch(`${apiBase}/pokemon?limit=150`)
     const data = await response.json()
 
     const pokemonsWithSprites = await Promise.all(
@@ -62,20 +62,41 @@ app.get('/pokemon/:id', async (req, res) => {
     }
 });
 
-app.get('/search', async function(req, res) => {
+app.get('/search', async function(req, res) {
+    const pokemonsAPI = await fetch(apiBase)
     const keyword = req.query.p?.toLowerCase();
 
     // als de keyword er niet tussenstaat dan geeft hij een error aan
-    if(!keyword) {
-        return.res.status(400).json{{ error. 'no results' }};
+    if (!keyword) {
+        return res.status(400).json({ error: 'No keyword provided' });
     }
 
+    const response = await fetch(`${apiBase}/pokemon?limit=150`);
+    const data = await response.json();
+
     // zoekt binnen alle pokemon files
-    const results = data.filter(item =>
-        item.name.toLowerCase().includes(keyword)
+    const results = data.results.filter(pokemon =>
+        pokemon.name.toLowerCase().includes(keyword)
     );
 
-    res.json(results);
+    // dit laat hij zien wanneer je the searchroute uitvoert
+    const detailedResults = await Promise.all(results.map(async (pokemon) => {
+        const detailedResponse = await fetch (pokemon.url);
+        const details = await detailedResponse.json();
+
+        return {
+            name: details.name,
+            sprite: details.sprites.other.dream_world.front_default,
+            gif: details.sprites.other.showdown.front_default,
+            audio: details.cries.latest
+        }
+    }
+    ))
+    // laad de nieuwe pagina met de results
+
+    res.render('index.liquid', {
+        pokemons: detailedResults
+    })
 });
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
