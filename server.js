@@ -25,8 +25,9 @@ app.get('/', async (req, res) => {
             const details = await detailsResponse.json()
 
             return {
-                name: pokemon.name,
+                name: details.name,
                 sprite: details.sprites.other.dream_world.front_default,
+                gif: details.sprites.other.showdown.front_default,
                 audio: details.cries.latest
             }
         })
@@ -38,18 +39,44 @@ app.get('/', async (req, res) => {
 })
 
 app.get('/pokemon/:id', async (req, res) => {
-    const id = req.params.id
-    const response = await fetch(`${apiBase}/pokemon/${id}`)
-    const data = await response.json()
+    const id = req.params.id;
+    try {
+        const response = await fetch(`${apiBase}/pokemon/${id}`);
+        const data = await response.json();
 
-    res.render('pokemon.liquid', {
-        pokemon: data
-    })
-})
+        const pokemon = {
+            name: data.name,
+            front: data.sprites.front_default,
+            back: data.sprites.back_default,
+            sprite: data.sprites.other.dream_world.front_default,
+            gif: data.sprites.other.showdown.front_default,
+            audio: data.cries.latest
+        };
 
-// app.get('/search', async (req, res) => {
+        res.render('pokemon.liquid', {
+            pokemon: pokemon 
+        });
+    } catch (error) {
+        console.error('Failed to fetch Pokémon:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
 
-// }
+app.get('/search', async function(req, res) => {
+    const keyword = req.query.q?.toLowerCase();
+
+    // als de keyword er niet tussenstaat dan geeft hij een error aan
+    if(!keyword) {
+        return.res.status(400).json{{ error. 'no results' }};
+    }
+
+    // zoekt binnen alle pokemon files
+    const results = data.filter(item =>
+        item.name.toLowerCase().includes(keyword)
+    );
+
+    res.json(results);
+});
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
