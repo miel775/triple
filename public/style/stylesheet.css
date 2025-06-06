@@ -1,26 +1,62 @@
 :root {
     /* colorscheme */
-    --color-pokemon-type-grass: rgb(190, 226, 183);
-    --color-pokemon-type-normal: rgb(189, 189, 189);
-    --color-pokemon-type-fire: rgb(255, 179, 190);
-    --color-pokemon-type-water: rgb(165, 183, 255);
-    --color-pokemon-type-flying: rgb(170, 205, 255);
-    --color-pokemon-type-fighting: rgb(233, 168, 164);
-    --color-pokemon-type-poison: rgb(219, 191, 231);
-    --color-pokemon-type-electric: rgb(255, 233, 135);
-    --color-pokemon-type-ground: rgb(210, 158, 131);
-    --color-pokemon-type-rock: rgb(171, 171, 171);
-    --color-pokemon-type-psychic: rgb(255, 187, 244);
-    --color-pokemon-type-ice: rgb(157, 209, 255);
-    --color-pokemon-type-bug: rgb(199, 248, 204);
-    --color-pokemon-type-ghost: rgb(192, 149, 212);
-    --color-pokemon-type-steel: rgb(194, 194, 194);
-    --color-pokemon-type-dragon: rgb(106, 164, 245);
-    --color-pokemon-type-dark: rgb(153, 153, 153);
-    --color-pokemon-type-fairy: rgb(255, 161, 235);
-    --color-gray: rgb(231, 230, 236);
-    --color-primary-daylight: rgb(246, 246, 255);
-    --color-primary-purple: rgb(86, 49, 232);
+    --color-pokemon-type-grass: #bee2b7;
+    --color-pokemon-type-grass-2: #6f8a6a;
+    
+    --color-pokemon-type-normal: #bdbdbd;
+    --color-pokemon-type-normal-2: #6b6868;
+    
+    --color-pokemon-type-fire: #ffb3be;
+    --color-pokemon-type-fire-2: #81444d;
+    
+    --color-pokemon-type-water: #a5b7ff;
+    --color-pokemon-type-water-2: #334691;
+    
+    --color-pokemon-type-flying: #aaccff;
+    --color-pokemon-type-flying-2: #345889;
+    
+    --color-pokemon-type-fighting: #e9a8a4;
+    --color-pokemon-type-fighting-2: #a04d4a;
+    
+    --color-pokemon-type-poison: #dbbfe7;
+    --color-pokemon-type-poison-2: #835c9a;
+    
+    --color-pokemon-type-electric: #ffe987;
+    --color-pokemon-type-electric-2: #b29a3b;
+    
+    --color-pokemon-type-ground: #d29e83;
+    --color-pokemon-type-ground-2: #7b573c;
+    
+    --color-pokemon-type-rock: #ababab;
+    --color-pokemon-type-rock-2: #5e5e5e;
+    
+    --color-pokemon-type-psychic: #ffbbf4;
+    --color-pokemon-type-psychic-2: #b068a3;
+    
+    --color-pokemon-type-ice: #9dd1ff;
+    --color-pokemon-type-ice-2: #4a7ba6;
+    
+    --color-pokemon-type-bug: #c7f8cc;
+    --color-pokemon-type-bug-2: #68995b;
+    
+    --color-pokemon-type-ghost: #c095d4;
+    --color-pokemon-type-ghost-2: #724a85;
+    
+    --color-pokemon-type-steel: #c2c2c2;
+    --color-pokemon-type-steel-2: #6a6a6a;
+    
+    --color-pokemon-type-dragon: #6aa4f5;
+    --color-pokemon-type-dragon-2: #30578f;
+    
+    --color-pokemon-type-dark: #999999;
+    --color-pokemon-type-dark-2: #4c4c4c;
+    
+    --color-pokemon-type-fairy: #ffa1eb;
+    --color-pokemon-type-fairy-2: #b55f98;
+
+    --color-gray: #e7e6ec;
+    --color-primary-daylight: #f6f6ff;
+    --color-primary-purple: #5631e8;
 }
 
 h1 {
