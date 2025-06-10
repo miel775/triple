@@ -3,16 +3,78 @@
 <a href="/"> Go back </a>
 
 </article>
-    <h2> {{ pokemon.name |  upcase }}</h2>
-    <img 
-    src="{{ pokemon.front }}" 
-    height="200" 
-    width="200" 
-    alt="{{ pokemon.name }} front">
+    <div id="header-article">
+        <img 
+            src="{{ pokemon.front }}" 
+            height="200" 
+            width="200" 
+            alt="{{ pokemon.name }} front">
+            <h2> {{ pokemon.name |  upcase }}</h2>
+            <p> {{ pokemon.id }} </p>
 
-    <img 
-    src="{{ pokemon.back }}" 
-    height="200" 
-    width="200" 
-    alt="{{ pokemon.name }} back">
+            {% comment %} svg element voor XP (silohette idee) {% endcomment %}
+            <p> XP: {{ pokemon.xp }} </p>
+            <p> Weight: {{ pokemon.weight }} </p>
+            <p> Height: {{ pokemon.height }} </p>
+
+
+            {% comment %} moet een manier komen om de types te late zien die bij de pokemon past {% endcomment %}
+
+            {% for type in pokemon.types %}
+                <img 
+                    src="../assets/detail/types/type-{{ type.type.name }}.png" 
+                    height="50" 
+                    width="50" 
+                    alt="pokemon-type-{{ type.type.name }}">
+            {% endfor %}
+
+            {% comment %} abilities worden hier getoond {% endcomment %}
+                <ul>
+                    {% for ability in pokemon.abilities %}
+                        <li>{{ ability.ability.name }}</li>
+                    {% endfor %}
+                </ul>
+    </div>
+
+
+
+    <div id="progressbar">
+        <label for="progressbar_HP"> HP </label>
+        <progress id="progressbar_HP" value="{{ pokemon.hp }}" max="100"> {{ pokemon.hp }} </progress>
+
+        <label for="progressbar_attack"> Attack </label>
+        <progress id="progressbar_attack" value="{{ pokemon.attack }}" max="100"> {{ pokemon.attack }} </progress>
+
+        <label for="progressbar_defense"> Defense </label>
+        <progress id="progressbar_defense" value="{{ pokemon.defense }}" max="100"> {{ pokemon.defense }} </progress>
+
+        <label for="progressbar_special_attack"> Special Attack </label>
+        <progress id="progressbar_special_attack" value="{{ pokemon.special_attack }}" max="100"> {{ pokemon.special_attack }} </progress>
+
+        <label for="progressbar_special_defense"> Special Defense </label>
+        <progress id="progressbar_special_defense" value="{{ pokemon.special_defense }}" max="100"> {{ pokemon.special_defense }} </progress>
+
+        <label for="progressbar_speed"> Speed </label>
+        <progress id="progressbar_speed" value="{{ pokemon.speed }}" max="100"> {{ pokemon.speed }} </progress>
+
+    </div>
+
+    <div id="evolution-bar">
+        <div id="first-evolution">
+            {% comment %} if it is the first evolution show first {% endcomment %}
+        </div>
+
+        <div id="second-evolution">
+            {% comment %} if it is the second evolution show second {% endcomment %}
+        </div>
+
+        <div id="third-evolution">
+            {% comment %} if it is the third evolution show third {% endcomment %}
+        </div>
+    </div>
+
+    <video>
+        <soruce></soruce>
+    </video>
+
 </article>

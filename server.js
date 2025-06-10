@@ -44,14 +44,33 @@ app.get('/pokemon/:id', async (req, res) => {
         const response = await fetch(`${apiBase}/pokemon/${id}`);
         const data = await response.json();
 
+        const evolutionChain = await fetch (`${apiBase}/evolution-chain/${id}`);
+        const evolutionChainJSON = await evolutionChain.json();
+
         const pokemon = {
             name: data.name,
             front: data.sprites.front_default,
             back: data.sprites.back_default,
             sprite: data.sprites.other.dream_world.front_default,
             gif: data.sprites.other.showdown.front_default,
-            audio: data.cries.latest
+            audio: data.cries.latest,
+            id: data.id,
+            xp: data.base_experience,
+            weight: data.weight,
+            height: data.height,
+            types: data.types,
+            abilities: data.abilities.data,
+
+            // stats
+            hp: data.stats[0].base_stat,
+            attack: data.stats[1].base_stat,
+            defense: data.stats[2].base_stat,
+            special_attack: data.stats[3].base_stat,
+            special_defense: data.stats[4].base_stat,
+            speed: data.stats[5].base_stat,
         };
+
+        const evolution = 
 
         res.render('pokemon.liquid', {
             pokemon: pokemon 

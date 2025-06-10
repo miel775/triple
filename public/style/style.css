@@ -1,3 +1,7 @@
 nav {
     background-color: var(--color-darkgrey);
 }
+
+#video-bg {
+    background-image: url();
+}
