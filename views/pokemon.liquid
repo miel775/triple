@@ -2,7 +2,7 @@
 
 <a href="/"> Go back </a>
 
-</article>
+<article style="background-color:var(--color-pokemon-type-{{ pokemon.types }}"> 
     <div id="header-article">
         <img 
             src="{{ pokemon.front }}" 
@@ -72,9 +72,9 @@
             {% comment %} if it is the third evolution show third {% endcomment %}
         </div>
     </div>
-
-    <video>
-        <soruce></soruce>
-    </video>
-
 </article>
+
+
+<video autoplay muted loop id="video-bg">
+    <source src="../assets/general/pokemon-background.mp4" type="video/mp4">
+</video>

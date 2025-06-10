@@ -1,7 +1,7 @@
 {% render 'views/partials/head.liquid', title: 'PokeApp' %}
 
-<body>
-<nav>
+<body id="body-index">
+<nav id="header">
     <picture>
         <scource srcset="../assets/general/PokemonLogo-1.avif" type="image/avif">
         <scource srcset="../assets/general/PokemonLogo-1.webp" type="image/webp">
@@ -17,31 +17,29 @@
 
     <button id="pokemon-button"> All Pokemons </button>
 </nav>
-<main>
-    <article>
-        <h2> {{ pokemon.name }}</h2>
-        <img>
-    </article>
-</main>
+<main id="overview">
 
     {% for p in pokemons %}
-            <article>
-            <h1><a href="/pokemon/{{ forloop.index }}">{{ p.name | capitalize }}</a></h1>
-            <img 
-                src="{{ p.sprite }}" 
-                height="100" 
-                width="100" 
-                alt="{{ p.name }}"
-                onclick="playAudio()"
-                aria-hidden="true"
-                >
-                
-                <audio>
-                    <source src="../assets/general/cries_pokemon_latest_7.ogg" typ="audio/ogg" id="audio">
-                </audio>
+        <article>
+        <h2 id="name"><a href="/pokemon/{{ forloop.index }}">{{ p.name | capitalize }}</a></h2>
+        <img 
+            src="{{ p.sprite }}" 
+            height="100" 
+            width="100" 
+            alt="{{ p.name }}"
+            onclick="playAudio()"
+            aria-hidden="true"
+            >
+            
+            <audio>
+                <source src="../assets/general/cries_pokemon_latest_7.ogg" typ="audio/ogg" id="audio">
+            </audio>
 
-            </article>
-    {% endfor %}
+        </article>
+{% endfor %}
+</main>
+
+
 
     <script src="../script/audio.js" defer></script>
 

@@ -3,5 +3,40 @@ nav {
 }
 
 #video-bg {
-    background-image: url();
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+#body-index {
+    display: grid;
+    grid-template-columns: 30% 70%;
+
+    h1 {
+        font-size: 24px;
+        background-color:  var(--color-primary-daylight):
+    }
+}
+
+#header {
+    justify-content: center;
+    height: 100%;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px;
+    gap: 0.4em;
+}
+
+#name {
+    display: none;
+}
+
+article:hover ~ #name {
+    display: block;
 }
