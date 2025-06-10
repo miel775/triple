@@ -16,7 +16,7 @@ const apiBase = "https://pokeapi.co/api/v2/";
 
 
 app.get('/', async (req, res) => {
-    const response = await fetch(`${apiBase}/pokemon?limit=150`)
+    const response = await fetch(`${apiBase}/pokemon?limit=30`)
     const data = await response.json()
 
     const pokemonsWithSprites = await Promise.all(

@@ -2,13 +2,12 @@
 
 <body>
 <nav>
-
     <picture>
         <scource srcset="../assets/general/PokemonLogo-1.avif" type="image/avif">
         <scource srcset="../assets/general/PokemonLogo-1.webp" type="image/webp">
     <img src="../assets/general/PokemonLogo-1.png">
     </picture>
-    
+
     <h1>All Pokemons</h1>
     {% comment %} in de form element kan je opzoek gaan naar de pokemon {% endcomment %}
     <form action="search" method="get">
@@ -33,7 +32,10 @@
                 height="100" 
                 width="100" 
                 alt="{{ p.name }}"
-                onclick="playAudio()">
+                onclick="playAudio()"
+                aria-hidden="true"
+                >
+                
                 <audio>
                     <source src="../assets/general/cries_pokemon_latest_7.ogg" typ="audio/ogg" id="audio">
                 </audio>

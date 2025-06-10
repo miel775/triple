@@ -57,11 +57,119 @@
     --color-gray: #e7e6ec;
     --color-primary-daylight: #f6f6ff;
     --color-primary-purple: #5631e8;
+
+    --color-darkgrey: #252525;
+
+    /* font-sizes */
+    --font-h1-dekstop: 128px;
+    --font-h1-tablet: 96px;
+    --font-h1-mobile: 64px;
+
+    --font-h2-desktop: 96px;
+    --font-h2-tablet: 64px;
+    --font-h2-mobile: 48px;
+
+    --font-h3-desktop: 64px;
+    --font-h3-tablet: 36px;
+    --font-h3-mobile: 24px;
+
+    --font-p-desktop: 20px;
+    --font-p-tablet: 16px;
+    --font-p-mobile: 12px;
+
+    /* border */
+
+    --border-desktop: 2px solid var(var(--color-pokemon-type-electric));
+    --border-tablet: 1.5px solid var(var(--color-pokemon-type-electric));
+    --border-mobile: 1px solid var(var(--color-pokemon-type-electric));
+}
+
+* {
+    text-decoration: none;
 }
 
 h1 {
+    font-family: "Arial";
+    font-weight: 800;
+    font-size: var(--font-h1-dekstop);
+
+    @media screen and (max-width: 1080px) {
+        font-size: var(--font-h1-tablet);
+        font-weight: 600;
+    }
+
+    @media screen and (max-width: 720px) and (max-width: 1079px) {
+        font-size: var(--font-h1-mobile);
+        font-weight: 400;
+    }
+}
+
+
+
+h2 {
+    font-family: "Arial";
+    font-weight: 800;
+    font-size: var(--font-h2-dekstop);
+    text-decoration: none;
+
+    @media screen and (max-width: 1080px) {
+        font-size: var(--font-h2-tablet);
+        font-weight: 600;
+    }
+
+    @media screen and (max-width: 720px) and (min-width: 1079px) {
+        font-size: var(--font-h2-mobile);
+        font-weight: 400;
+    }
+}
+
+h3 {
+    font-family: "Arial";
+    font-weight: 500;
+    font-size: var(--font-h3-dekstop);
+    text-decoration: none;
+
+    @media screen and (max-width: 1080px) {
+        font-size: var(--font-h3-tablet);
+        font-weight: 400;
+    }
+    
+    @media screen and (max-width: 720px) and (min-width: 1079px) {
+        font-size: var(--font-h3-mobile);
+        font-weight: 200;
+    }
+}
+
+p {
     font-family: "Pokemon-font";
-    font-size: 100px;
+    font-weight: 500;
+    font-size: var(--font-p-dekstop);
+    text-decoration: none;
+
+    @media screen and (max-width: 1080px) {
+        font-size: var(--font-p-tablet);
+        font-weight: 400;
+    }
+    
+    @media screen and (max-width: 720px) and (min-width: 1079px) {
+        font-size: var(--font-p-mobile);
+        font-weight: 200;
+    }
+}
+
+
+
+
+:focus {
+    border: var(--border-desktop);
+
+    @media screen and (max-width: 1080px) {
+        border: var(--border-tablet);
+    }
+    
+    @media screen and (max-width: 720px) and (min-width: 1079px) {
+        border: var(--border-mobile);
+    }
 }
 
 @font-face {
