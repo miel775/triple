@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/fdnd-task/proof-of-concept#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "express": "^5.0.1",
     "liquidjs": "^10.21.0"
   },

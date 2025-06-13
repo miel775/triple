@@ -16,35 +16,42 @@ const apiBase = "https://pokeapi.co/api/v2/";
 
 
 app.get('/', async (req, res) => {
-    const response = await fetch(`${apiBase}/pokemon?limit=30`)
-    const data = await response.json()
+    try {
+        const response = await fetch(`${apiBase}pokemon?limit=30`)
+        const data = await response.json()
 
-    const pokemonsWithSprites = await Promise.all(
-        data.results.map(async (pokemon) => {
-            const detailsResponse = await fetch(pokemon.url)
-            const details = await detailsResponse.json()
+        const pokemonsWithSprites = await Promise.all(
+            data.results.map(async (pokemon) => {
+                const detailsResponse = await fetch(pokemon.url)
+                const details = await detailsResponse.json()
 
-            return {
-                name: details.name,
-                sprite: details.sprites.other.dream_world.front_default,
-                gif: details.sprites.other.showdown.front_default,
-                audio: details.cries.latest
-            }
+                return {
+                    name: details.name,
+                    sprite: details.sprites.other.dream_world.front_default,
+                    gif: details.sprites.other.showdown.front_default,
+                    audio: details.cries.latest
+                }
+            })
+        )
+
+        res.render('index.liquid', {
+            pokemons: pokemonsWithSprites
         })
-    )
-
-    res.render('index.liquid', {
-        pokemons: pokemonsWithSprites
-    })
+    } catch (err) {
+        res.render('error.liquid')
+    }
 })
 
 app.get('/pokemon/:id', async (req, res) => {
     const id = req.params.id;
+
     try {
-        const response = await fetch(`${apiBase}/pokemon/${id}`);
+        const response = await fetch(`${apiBase}pokemon/${id}`);
+        if (!response.ok) throw new Error("Pokemon not found");
         const data = await response.json();
 
-        const evolutionChain = await fetch (`${apiBase}/evolution-chain/${id}`);
+        // Optional: If evolution-chain id does not match, you may need a different lookup
+        const evolutionChain = await fetch(`${apiBase}evolution-chain/${id}`);
         const evolutionChainJSON = await evolutionChain.json();
 
         const pokemon = {
@@ -59,64 +66,57 @@ app.get('/pokemon/:id', async (req, res) => {
             weight: data.weight,
             height: data.height,
             types: data.types,
-            abilities: data.abilities.data,
-
-            // stats
+            abilities: data.abilities, // removed `.data`, it doesn’t exist here
             hp: data.stats[0].base_stat,
             attack: data.stats[1].base_stat,
             defense: data.stats[2].base_stat,
             special_attack: data.stats[3].base_stat,
             special_defense: data.stats[4].base_stat,
-            speed: data.stats[5].base_stat,
+            speed: data.stats[5].base_stat
         };
 
-        const evolution = 
-
-        res.render('pokemon.liquid', {
-            pokemon: pokemon 
-        });
-    } catch (error) {
-        console.error('Failed to fetch Pokémon:', error);
-        res.status(500).send('Internal Server Error');
+        res.render('pokemon.liquid', { pokemon })
+    } catch (err) {
+        res.render('error.liquid')
     }
-});
+})
 
-app.get('/search', async function(req, res) {
-    const pokemonsAPI = await fetch(apiBase)
-    const keyword = req.query.p?.toLowerCase();
 
-    // als de keyword er niet tussenstaat dan geeft hij een error aan
-    if (!keyword) {
-        return res.status(400).json({ error: 'No keyword provided' });
-    }
+app.get('/search', async (req, res) => {
+    try {
+        const keyword = req.query.p?.toLowerCase() || "";
 
-    const response = await fetch(`${apiBase}/pokemon?limit=150`);
-    const data = await response.json();
+        const response = await fetch(`${apiBase}pokemon?limit=150`);
+        const data = await response.json();
 
-    // zoekt binnen alle pokemon files
-    const results = data.results.filter(pokemon =>
-        pokemon.name.toLowerCase().includes(keyword)
-    );
+        const results = data.results.filter(pokemon =>
+            pokemon.name.toLowerCase().includes(keyword)
+        );
 
-    // dit laat hij zien wanneer je the searchroute uitvoert
-    const detailedResults = await Promise.all(results.map(async (pokemon) => {
-        const detailedResponse = await fetch (pokemon.url);
-        const details = await detailedResponse.json();
-
-        return {
-            name: details.name,
-            sprite: details.sprites.other.dream_world.front_default,
-            gif: details.sprites.other.showdown.front_default,
-            audio: details.cries.latest
+        if (results.length === 0) {
+            return res.render('error.liquid');
         }
-    }
-    ))
-    // laad de nieuwe pagina met de results
 
-    res.render('index.liquid', {
-        pokemons: detailedResults
-    })
-});
+        const detailedResults = await Promise.all(results.map(async (pokemon) => {
+            const detailedResponse = await fetch(pokemon.url);
+            const details = await detailedResponse.json();
+
+            return {
+                name: details.name,
+                sprite: details.sprites.other.dream_world.front_default,
+                gif: details.sprites.other.showdown.front_default,
+                audio: details.cries.latest
+            }
+        }));
+
+        res.render('index.liquid', {
+            pokemons: detailedResults
+        });
+    } catch (err) {
+        res.render('empty.liquid')
+    }
+})
+
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {

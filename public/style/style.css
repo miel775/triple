@@ -1,7 +1,3 @@
-nav {
-    background-color: var(--color-darkgrey);
-}
-
 #video-bg {
     position: fixed;
     right: 0;
@@ -22,15 +18,21 @@ nav {
 }
 
 #header {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    height: 100%;
+    align-items: center;
+    background-color: var(--color-darkgrey);
+    width: 100%;
 }
 
 main {
     display: grid;
-    grid-template-columns: 100px 100px 100px 100px 100px;
-    grid-template-rows: 100px 100px 100px 100px;
+    grid-template-columns: repeat(6 ,1fr);
+    grid-template-rows: repeat(6 ,1fr);
     gap: 0.4em;
+    padding: 1em;
+    background-color: var(--color-primary-daylight);
 }
 
 #name {
