@@ -18,7 +18,20 @@
 }
 
 #header {
-    background-color: var(--color-darkgrey);
+    background-color: var(--color-light);
+
+    label {
+        color: var(--color-dark);
+
+    }
+    h1 {
+        color: var(--color-dark);
+    }
+
+    button {
+        background-color: var(--color-light);
+        color: var(--color-dark);
+    }
 
 }
 
@@ -42,7 +55,7 @@ main {
     grid-template-rows: repeat(6 ,1fr);
     gap: 0.4em;
     padding: 1em;
-    background-color: var(--color-primary-daylight);
+    background-color: var(--color-day);
 }
 
 #name {
@@ -52,3 +65,4 @@ main {
 article:hover ~ #name {
     display: block;
 }
+

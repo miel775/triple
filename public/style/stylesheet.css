@@ -57,10 +57,11 @@
     --color-pokemon-type-fairy-2: #b55f98;
 
     /* header elements */
-    --color-grey: #e7e6ec;
-    --color-primary-day: #dcdcff;
-    --color-primary-night: #0f0f43;
-    --color-darkgrey: #252525;
+    --color-dark: #3b3b3b;
+    --color-light: #dcdcff;
+    --color-day: #acacdd;
+
+
 
     /* font-sizes */
     --font-h1-dekstop: 128px;
@@ -86,6 +87,12 @@
     --border-mobile: 1px solid var(var(--color-pokemon-type-electric));
 }
 
+[data-theme="dark"] {
+    --color-light: #0f0f43;
+    --color-dark: #d3d3d3;
+    --color-day: #21104b;
+  }
+
 * {
     text-decoration: none;
 }
@@ -95,7 +102,7 @@ h1 {
     font-family: "Arial";
     font-weight: 800;
     font-size: var(--font-h1-dekstop);
-    color: light-dark(var(--color-darkgrey), var(--color-grey));
+    color: var(--color-grey);
 
     @media screen and (max-width: 1080px) {
         font-size: var(--font-h1-tablet);
@@ -181,3 +188,13 @@ p {
     src: 
         url("../assets/general/pokemon-classic.ttf") format("truetype");
 }
+
+body.sun {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+  }
+
+  body.moon {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+  }
