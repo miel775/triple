@@ -2,23 +2,45 @@
 
 <body id="body-index">
 <nav id="header">
-    <picture>
-        <scource srcset="../assets/general/PokemonLogo-1.avif" type="image/avif">
-        <scource srcset="../assets/general/PokemonLogo-1.webp" type="image/webp">
-    <img src="../assets/general/PokemonLogo-1.png" alt="pokemon-logo" width="200" height="50">
-    </picture>
+    <div id="header-elements">
+        <picture>
+            <scource srcset="../assets/general/PokemonLogo-1.avif" type="image/avif">
+            <scource srcset="../assets/general/PokemonLogo-1.webp" type="image/webp">
+        <img src="../assets/general/PokemonLogo-1.png" alt="pokemon-logo" width="200" height="50">
+        </picture>
 
-    <h1>All Pokemons</h1>
-    {% comment %} in de form element kan je opzoek gaan naar de pokemon {% endcomment %}
-    <label>Search</label>
-    <form action="search" method="get">
-        <input type="search" name="p" required>
-    </form>
+        <h1>All Pokemons</h1>
+        {% comment %} in de form element kan je opzoek gaan naar de pokemon {% endcomment %}
+        <label>Search</label>
+        <form action="search" method="get">
+            <input type="search" name="p" required>
+        </form>
 
-    <button id="pokemon-button"> All Pokemons </button>
+        <button id="pokemon-button"> All Pokemons </button>
+    </div>
 
-    <button id="darkmode"> Dark</button>
-    <button id="lightmode"> Light</button>
+    <div id="controller">
+        <button style="display:inline-block" id="sun-button">
+
+        <picture>
+            <scource srcset="../assets/general/sun.avif" type="image/avif">
+            <scource srcset="../assets/general/sun.webp" type="image/webp">
+        <img src="../assets/general/sun.png" alt="sun-icon" width="25" height="25">
+        </picture>
+
+    </button>
+
+    <button style="display:inline-block" id="moon-button">
+
+        <picture>
+            <scource srcset="../assets/general/moon.avif" type="image/avif">
+            <scource srcset="../assets/general/moon.webp" type="image/webp">
+        <img src="../assets/general/moon.png" alt="moon-icon" width="25" height="25">
+        </picture>
+
+    </button>
+    </div>
+
 </nav>
 <main id="overview">
 

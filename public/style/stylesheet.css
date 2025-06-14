@@ -1,5 +1,7 @@
 :root {
     /* colorscheme */
+    color-scheme: light dark;
+
     --color-pokemon-type-grass: #bee2b7;
     --color-pokemon-type-grass-2: #6f8a6a;
     
@@ -54,10 +56,10 @@
     --color-pokemon-type-fairy: #ffa1eb;
     --color-pokemon-type-fairy-2: #b55f98;
 
-    --color-gray: #e7e6ec;
-    --color-primary-daylight: #dcdcff;
-    --color-primary-purple: #5631e8;
-
+    /* header elements */
+    --color-grey: #e7e6ec;
+    --color-primary-day: #dcdcff;
+    --color-primary-night: #0f0f43;
     --color-darkgrey: #252525;
 
     /* font-sizes */
@@ -88,10 +90,12 @@
     text-decoration: none;
 }
 
+
 h1 {
     font-family: "Arial";
     font-weight: 800;
     font-size: var(--font-h1-dekstop);
+    color: light-dark(var(--color-darkgrey), var(--color-grey));
 
     @media screen and (max-width: 1080px) {
         font-size: var(--font-h1-tablet);

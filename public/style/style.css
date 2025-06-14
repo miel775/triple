@@ -18,12 +18,22 @@
 }
 
 #header {
+    background-color: var(--color-darkgrey);
+
+}
+
+#header-elements {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-darkgrey);
-    width: 100%;
+
+}
+
+#controller {
+    display: flex;
+
+    align-items: flex-end;
 }
 
 main {
