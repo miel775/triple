@@ -198,3 +198,238 @@ body.sun {
     --bg-color: #121212;
     --text-color: #f0f0f0;
   }
+
+  #type-grass {
+    background-color: var(--color-pokemon-type-grass);
+    border: 2px solid var(--color-pokemon-type-grass-2);
+
+    @media screen (max-width:1080px) {
+        border: 1.5px solid var(--color-pokemon-type-grass-2);
+    }
+
+    @media screen (max-width:720px) {
+        border: 1px solid var(--color-pokemon-type-grass-2);
+    }
+  }
+
+  #type-fire {
+    background-color: var(--color-pokemon-type-fire);
+    border: 2px solid var(--color-pokemon-type-fire-2);
+
+    @media screen (max-width:1080px) {
+        border: 1.5px solid var(--color-pokemon-type-fire-2);
+    }
+
+    @media screen (max-width:720px) {
+        border: 1px solid var(--color-pokemon-type-fire-2);
+    }
+  }
+
+  #type-normal {
+    background-color: var(--color-pokemon-type-normal);
+    border: 2px solid var(--color-pokemon-type-normal-2);
+
+    @media screen (max-width:1080px) {
+        border: 1.5px solid var(--color-pokemon-type-normal-2);
+    }
+
+    @media screen (max-width:720px) {
+        border: 1px solid var(--color-pokemon-type-normal-2);
+    }
+  }
+
+  #type-water {
+    background-color: var(--color-pokemon-type-water);
+    border: 2px solid var(--color-pokemon-type-water-2);
+
+    @media screen (max-width:1080px) {
+        border: 1.5px solid var(--color-pokemon-type-water-2);
+    }
+
+    @media screen (max-width:720px) {
+        border: 1px solid var(--color-pokemon-type-water-2);
+    }
+  }
+
+  #type-flying {
+    background-color: var(--color-pokemon-type-flying);
+    border: 2px solid var(--color-pokemon-type-flying-2);
+
+    @media screen (max-width:1080px) {
+        border: 1.5px solid var(--color-pokemon-type-flying-2);
+    }
+
+    @media screen (max-width:720px) {
+        border: 1px solid var(--color-pokemon-type-flying-2);
+    }
+  }
+
+  #type-fighting {
+    background-color: var(--color-pokemon-type-fighting);
+    border: 2px solid var(--color-pokemon-type-fighting-2);
+
+    @media screen (max-width:1080px) {
+        border: 1.5px solid var(--color-pokemon-type-fighting-2);
+    }
+
+    @media screen (max-width:720px) {
+        border: 1px solid var(--color-pokemon-type-fighting-2);
+    }
+  }
+
+
+#type-poison {
+    background-color: var(--color-pokemon-type-poison);
+    border: 2px solid var(--color-pokemon-type-poison-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-poison-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-poison-2);
+    }
+}
+
+#type-electric {
+    background-color: var(--color-pokemon-type-electric);
+    border: 2px solid var(--color-pokemon-type-electric-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-electric-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-electric-2);
+    }
+}
+
+#type-ground {
+    background-color: var(--color-pokemon-type-ground);
+    border: 2px solid var(--color-pokemon-type-ground-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-ground-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-ground-2);
+    }
+}
+
+#type-rock {
+    background-color: var(--color-pokemon-type-rock);
+    border: 2px solid var(--color-pokemon-type-rock-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-rock-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-rock-2);
+    }
+}
+
+#type-psychic {
+    background-color: var(--color-pokemon-type-psychic);
+    border: 2px solid var(--color-pokemon-type-psychic-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-psychic-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-psychic-2);
+    }
+}
+
+#type-ice {
+    background-color: var(--color-pokemon-type-ice);
+    border: 2px solid var(--color-pokemon-type-ice-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-ice-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-ice-2);
+    }
+}
+
+#type-bug {
+    background-color: var(--color-pokemon-type-bug);
+    border: 2px solid var(--color-pokemon-type-bug-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-bug-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-bug-2);
+    }
+}
+
+#type-ghost {
+    background-color: var(--color-pokemon-type-ghost);
+    border: 2px solid var(--color-pokemon-type-ghost-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-ghost-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-ghost-2);
+    }
+}
+
+#type-steel {
+    background-color: var(--color-pokemon-type-steel);
+    border: 2px solid var(--color-pokemon-type-steel-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-steel-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-steel-2);
+    }
+}
+
+#type-dragon {
+    background-color: var(--color-pokemon-type-dragon);
+    border: 2px solid var(--color-pokemon-type-dragon-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-dragon-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-dragon-2);
+    }
+}
+
+#type-dark {
+    background-color: var(--color-pokemon-type-dark);
+    border: 2px solid var(--color-pokemon-type-dark-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-dark-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-dark-2);
+    }
+}
+
+#type-fairy {
+    background-color: var(--color-pokemon-type-fairy);
+    border: 2px solid var(--color-pokemon-type-fairy-2);
+
+    @media screen and (max-width: 1080px) {
+        border: 1.5px solid var(--color-pokemon-type-fairy-2);
+    }
+
+    @media screen and (max-width: 720px) {
+        border: 1px solid var(--color-pokemon-type-fairy-2);
+    }
+}

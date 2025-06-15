@@ -62,7 +62,14 @@ main {
     display: none;
 }
 
-article:hover ~ #name {
+a:hover ~ #name {
     display: block;
 }
 
+
+article {
+    display: flex;
+    padding: 1em;
+    justify-content: center;
+    border: var(--border-desktop);
+}

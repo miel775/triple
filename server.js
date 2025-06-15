@@ -29,7 +29,8 @@ app.get('/', async (req, res) => {
                     name: details.name,
                     sprite: details.sprites.other.dream_world.front_default,
                     gif: details.sprites.other.showdown.front_default,
-                    audio: details.cries.latest
+                    audio: details.cries.latest,
+                    type: details.types[0].type.name 
                 }
             })
         )

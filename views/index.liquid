@@ -4,32 +4,37 @@
 <nav id="header">
     <div id="header-elements">
         <picture>
-            <scource srcset="../assets/general/PokemonLogo-1.avif" type="image/avif">
-            <scource srcset="../assets/general/PokemonLogo-1.webp" type="image/webp">
+            <source srcset="../assets/general/PokemonLogo-1.avif" type="image/avif">
+            <source srcset="../assets/general/PokemonLogo-1.webp" type="image/webp">
         <img src="../assets/general/PokemonLogo-1.png" alt="pokemon-logo" width="200" height="50">
         </picture>
 
         <h1>All Pokemons</h1>
         {% comment %} in de form element kan je opzoek gaan naar de pokemon {% endcomment %}
         <label>Search</label>
-        <form action="search" method="get">
+        <form action="search" method="get" aria-label="Search" aria-placeholder="Search for Pokemon">
             <input type="search" name="p" required>
         </form>
 
-        <button id="pokemon-button"> All Pokemons </button>
+        <button 
+        id="pokemon-button"
+        aria-label="All Pokemons"
+        aria-pressed="false"
+        > All Pokemons 
+        </button>
     </div>
 
     <div id="controller">
-        <button style="display:inline-block" id="button-index">
+        <button style="display:inline-block" id="button-index" aria-label="auto">
         <picture id="sun">
-            <scource srcset="../assets/general/sun.avif" type="image/avif">
-            <scource srcset="../assets/general/sun.webp" type="image/webp">
+            <source srcset="../assets/general/sun.avif" type="image/avif">
+            <source srcset="../assets/general/sun.webp" type="image/webp">
         <img src="../assets/general/sun.png" alt="sun-icon" width="25" height="25">
         </picture>
-        
+
         <picture id="moon">
-            <scource srcset="../assets/general/moon.avif" type="image/avif">
-            <scource srcset="../assets/general/moon.webp" type="image/webp">
+            <source srcset="../assets/general/moon.avif" type="image/avif">
+            <source srcset="../assets/general/moon.webp" type="image/webp">
         <img src="../assets/general/moon.png" alt="moon-icon" width="25" height="25">
         </picture>
 
@@ -42,7 +47,7 @@
 <main id="overview">
 
     {% for p in pokemons %}
-        <article>
+        <article id="type-{{ p.type | downcase }}">
         <h2 id="name"><a href="/pokemon/{{ forloop.index }}">{{ p.name | capitalize }}</a></h2>
         <img 
             src="{{ p.sprite }}" 
