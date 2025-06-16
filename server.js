@@ -73,7 +73,9 @@ app.get('/pokemon/:id', async (req, res) => {
             defense: data.stats[2].base_stat,
             special_attack: data.stats[3].base_stat,
             special_defense: data.stats[4].base_stat,
-            speed: data.stats[5].base_stat
+            speed: data.stats[5].base_stat,
+            type: data.types[0].type.name,
+            typeTwo: data.types[1].type.name
         };
 
         res.render('pokemon.liquid', { pokemon })

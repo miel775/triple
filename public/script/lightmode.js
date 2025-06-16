@@ -1,13 +1,17 @@
 const theButton = document.getElementById('button-index');
-const  currentTheme = localStorage.getItem('theme');
+const sunIcon = document.querySelector('.sun-icon');
+const moonIcon = document.querySelector('.moon-icon');
+const currentTheme = localStorage.getItem('theme');
 
 // als de hudige theme donkere modus is dan zet colorscheme naar donker
 if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
-    document.body.classList.add('moon');
+    sunIcon?.classList.add('hidden');
+    moonIcon?.classList.remove('hidden');
 } else {
     document.documentElement.setAttribute('data-theme', 'light');
-    document.body.classList.add('sun');
+    moonIcon?.classList.add('hidden');
+    sunIcon?.classList.remove('hidden');
 }
 
 theButton.addEventListener('click', () => {
@@ -16,13 +20,15 @@ theButton.addEventListener('click', () => {
     if (theme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
-        document.body.classList.remove('moon');
-        document.body.classList.add('sun');
-    } else {
+
+        moonIcon?.classList.add('hidden');
+        sunIcon?.classList.remove('hidden');
     // als theme licht is zet het op donkere modus
+} else {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
-    document.body.classList.remove('sun');
-    document.body.classList.add('moon');
+
+    sunIcon?.classList.add('hidden');
+    moonIcon?.classList.remove('hidden');
 }
 });

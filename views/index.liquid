@@ -9,35 +9,38 @@
         <img src="../assets/general/PokemonLogo-1.png" alt="pokemon-logo" width="200" height="50">
         </picture>
 
-        <h1>All Pokemons</h1>
         {% comment %} in de form element kan je opzoek gaan naar de pokemon {% endcomment %}
         <label>Search</label>
         <form action="search" method="get" aria-label="Search" aria-placeholder="Search for Pokemon">
-            <input type="search" name="p" required>
+            <input type="search" name="p" required id="search-input" placeholder="SEARCH FOR POKEMON.." size="15">
+            <button>Search</button>
         </form>
 
-        <button 
-        id="pokemon-button"
-        aria-label="All Pokemons"
-        aria-pressed="false"
-        > All Pokemons 
-        </button>
+
     </div>
 
     <div id="controller">
-        <button style="display:inline-block" id="button-index" aria-label="auto">
-        <picture id="sun">
-            <source srcset="../assets/general/sun.avif" type="image/avif">
-            <source srcset="../assets/general/sun.webp" type="image/webp">
-        <img src="../assets/general/sun.png" alt="sun-icon" width="25" height="25">
-        </picture>
+    <a href="/" 
+    id="pokemon-button"
+    aria-label="All Pokemons"
+    > <picture>
+        <img src="../assets/general/gathering.png" alt="gather-icon" width="25" height="25">
+    </picture>
+    </a>
 
-        <picture id="moon">
-            <source srcset="../assets/general/moon.avif" type="image/avif">
-            <source srcset="../assets/general/moon.webp" type="image/webp">
-        <img src="../assets/general/moon.png" alt="moon-icon" width="25" height="25">
-        </picture>
 
+        <button style="display:inline-block" id="button-index">
+            <picture class="sun-icon">
+                <source srcset="../assets/general/sun.avif" type="image/avif">
+                <source srcset="../assets/general/sun.webp" type="image/webp">
+            <img src="../assets/general/sun.png" alt="sun-icon" width="25" height="25">
+            </picture>
+
+            <picture class="moon-icon">
+                <source srcset="../assets/general/moon.avif" type="image/avif">
+                <source srcset="../assets/general/moon.webp" type="image/webp">
+            <img src="../assets/general/moon.png" alt="moon-icon" width="25" height="25">
+            </picture>
     </button>
 
     </button>
@@ -47,8 +50,9 @@
 <main id="overview">
 
     {% for p in pokemons %}
+        <a href="/pokemon/{{ forloop.index }}">
         <article id="type-{{ p.type | downcase }}">
-        <h2 id="name"><a href="/pokemon/{{ forloop.index }}">{{ p.name | capitalize }}</a></h2>
+        <h2 id="name">{{ p.name | capitalize }}</h2>
         <img 
             src="{{ p.sprite }}" 
             height="100" 
@@ -63,7 +67,7 @@
             </audio>
 
         </article>
-        {% comment %} de achtergrondkleur is hetzelfde als de achtergrond van de pokemontype {% endcomment %}
+        </a>
 {% endfor %}
 </main>
 

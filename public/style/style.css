@@ -18,7 +18,7 @@
 }
 
 #header {
-    background-color: var(--color-light);
+    background-color: var(--color-darkgrey);
 
     label {
         color: var(--color-dark);
@@ -36,6 +36,7 @@
 }
 
 #header-elements {
+    padding: 8em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,8 +46,13 @@
 
 #controller {
     display: flex;
-
     align-items: flex-end;
+    justify-content: space-around;
+    align-items: flex-end;
+
+    button {
+        border: var(--border-desktop);
+    }
 }
 
 main {
@@ -56,6 +62,7 @@ main {
     gap: 0.4em;
     padding: 1em;
     background-color: var(--color-day);
+    overflow: auto;
 }
 
 #name {
@@ -72,4 +79,34 @@ article {
     padding: 1em;
     justify-content: center;
     border: var(--border-desktop);
+
 }
+
+.sunicon {
+    padding: 2em;
+}
+
+
+.hidden {
+    display: none;
+} 
+
+
+
+#search-input {
+    background-color: var(--color-night);
+    color: var(--color-light);
+    height: 3em;
+    border-radius: 1em;
+    font-family: "Pokemon-font";
+    border: var(--border-desktop);
+}
+
+
+#shape {
+    display: inline-block;
+    background-color: var(--color-day);
+}
+
+
+
