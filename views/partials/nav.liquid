@@ -27,18 +27,6 @@
         </a>
 
 
-        <button id="button-index">
-            <picture class="sun-icon">
-                <source srcset="../assets/general/sun.avif" type="image/avif">
-                <source srcset="../assets/general/sun.webp" type="image/webp">
-                <img src="../assets/general/sun.png" alt="sun-icon" width="25" height="25">
-            </picture>
-
-            <picture class="moon-icon">
-                <source srcset="../assets/general/moon.avif" type="image/avif">
-                <source srcset="../assets/general/moon.webp" type="image/webp">
-                <img src="../assets/general/moon.png" alt="moon-icon" width="25" height="25">
-            </picture>
-        </button>
+        {% render 'views/partials/darkmode.liquid' %}
     </div>
 </nav>

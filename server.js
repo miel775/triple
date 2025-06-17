@@ -14,6 +14,9 @@ app.set('views', './views')
 
 const apiBase = "https://pokeapi.co/api/v2/";
 
+const previous = "`${apiBase}pokemon?offset=-1`";
+const next = "`${apiBase}pokemon?offset=+1`";
+
 
 app.get('/', async (req, res) => {
     try {
