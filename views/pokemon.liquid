@@ -24,6 +24,7 @@
                 height="100"
                 id="pokemon-xp-avatar">
                 <p id="pokemon-xp-text"> {{ pokemon.xp }} </p>
+
              </div>
 
              <div id="pokemon-weight">
@@ -131,8 +132,14 @@
     </article>
 </div>
 
+{% render 'views/partials/darkmode.liquid' %}
+
+
 
 <video autoplay muted loop id="video-bg">
     <source src="../assets/general/pokemon-background.mp4" type="video/mp4">
 </video>
 
+<video autoplay muted loop id="video-bg-night">
+    <source src="../assets/general/pokemon-background-night.mp4" type="video/mp4">
+</video>
