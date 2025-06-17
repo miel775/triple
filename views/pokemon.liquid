@@ -52,23 +52,43 @@
         </div>
 
         <div id="progressbar-article">
+            <div id="pokemon-textfield">
             <label for="progressbar_HP"> HP </label>
-            <progress id="progressbar_HP" value="{{ pokemon.hp }}" max="100"> {{ pokemon.hp }} </progress>
+            <label> {{ pokemon.hp }} </label>
+            </div>
+            <progress id="progressbar_HP" class="progress-type-{{ pokemon.type | downcase }}" value="{{ pokemon.hp }}" max="100"> {{ pokemon.hp }} </progress>
 
+            <div id="pokemon-textfield">
             <label for="progressbar_attack"> Attack </label>
-            <progress id="progressbar_attack" value="{{ pokemon.attack }}" max="100"> {{ pokemon.attack }} </progress>
+            <label> {{ pokemon.attack }} </label>
+            </div>
+            <progress id="progressbar_attack" class="progress-type-{{ pokemon.type | downcase }}" value="{{ pokemon.attack }}" max="100"> {{ pokemon.attack }} </progress>
 
+            <div id="pokemon-textfield">
             <label for="progressbar_defense"> Defense </label>
-            <progress id="progressbar_defense" value="{{ pokemon.defense }}" max="100"> {{ pokemon.defense }} </progress>
+            <label> {{ pokemon.defense }} </label>
+            </div>
+            <progress id="progressbar_defense" class="progress-type-{{ pokemon.type | downcase }}" value="{{ pokemon.defense }}" max="100"> {{ pokemon.defense }} </progress>
 
+            <div id="pokemon-textfield">
             <label for="progressbar_special_attack"> Special Attack </label>
-            <progress id="progressbar_special_attack" value="{{ pokemon.special_attack }}" max="100"> {{ pokemon.special_attack }} </progress>
+            <label> {{ pokemon.special_attack }} </label>
+            </div>
+            <progress id="progressbar_special_attack" class="progress-type-{{ pokemon.type | downcase }}" value="{{ pokemon.special_attack }}" max="100"> {{ pokemon.special_attack }} </progress>
 
-            <label for="progressbar_special_defense"> Special Defense </label>
-            <progress id="progressbar_special_defense" value="{{ pokemon.special_defense }}" max="100"> {{ pokemon.special_defense }} </progress>
+            <div id="pokemon-textfield">
+                <label for="progressbar_special_defense"> Special Defense </label>
+                <label> {{ pokemon.special_defense }} </label>
+            </div>
+            
+            <progress id="progressbar_special_defense" class="progress-type-{{ pokemon.type | downcase }}" value="{{ pokemon.special_defense }}" max="100"> {{ pokemon.special_defense }} </progress>
 
+            <div id="pokemon-textfield">
             <label for="progressbar_speed"> Speed </label>
-            <progress id="progressbar_speed" value="{{ pokemon.speed }}" max="100"> {{ pokemon.speed }} </progress>
+            <label> {{ pokemon.speed }} </label>
+            </div>
+
+            <progress id="progressbar_speed"  class="progress-type-{{ pokemon.type | downcase }}" value="{{ pokemon.speed }}" max="100"> {{ pokemon.speed }} </progress>
 
         </div>
 

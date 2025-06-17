@@ -96,6 +96,11 @@ ul {
     }
 }
 
+#pokemon-textfield {
+    display: flex;
+    justify-content: space-between;
+}
+
 #evolutionbar-article {
     grid-row-start: 2;
     grid-column-start: 2;
@@ -126,3 +131,15 @@ ul {
 #go-back {
     margin: 1em;
 }
+
+progress[value]-x {
+    --color:  var(--color-pokemon-type-x);
+    --background:  var(--color-day);
+    --border: 2px solid var(--color-pokemon-type-x-2);
+  
+    border: 2px solid var(--color-pokemon-type-fairy-2);
+    background: var(--background);
+  }
+  progress[value]::-moz-progress-bar {
+    background: var(--color);
+  }
