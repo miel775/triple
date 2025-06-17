@@ -1,51 +1,9 @@
 {% render 'views/partials/head.liquid', title: 'PokeApp' %}
 
 <body id="body-index">
-<nav id="header">
-    <div id="header-elements">
-        <picture>
-            <source srcset="../assets/general/PokemonLogo-1.avif" type="image/avif">
-            <source srcset="../assets/general/PokemonLogo-1.webp" type="image/webp">
-        <img src="../assets/general/PokemonLogo-1.png" alt="pokemon-logo" width="200" height="50">
-        </picture>
 
-        {% comment %} in de form element kan je opzoek gaan naar de pokemon {% endcomment %}
-        <label>Search</label>
-        <form action="search" method="get" aria-label="Search">
-            <input type="search" name="p" required id="search-input" placeholder="SEARCH FOR POKEMON.." size="15">
-            <button>Search</button>
-        </form>
+{% render 'views/partials/nav.liquid' %}
 
-
-    </div>
-
-    <div id="controller">
-    <a href="/" 
-    id="pokemon-button"
-    aria-label="All Pokemons"
-    > <picture>
-        <img src="../assets/general/gathering.png" alt="gather-icon" width="25" height="25">
-    </picture>
-    </a>
-
-
-        <button style="display:inline-block" id="button-index">
-            <picture class="sun-icon">
-                <source srcset="../assets/general/sun.avif" type="image/avif">
-                <source srcset="../assets/general/sun.webp" type="image/webp">
-            <img src="../assets/general/sun.png" alt="sun-icon" width="25" height="25">
-            </picture>
-
-            <picture class="moon-icon">
-                <source srcset="../assets/general/moon.avif" type="image/avif">
-                <source srcset="../assets/general/moon.webp" type="image/webp">
-            <img src="../assets/general/moon.png" alt="moon-icon" width="25" height="25">
-            </picture>
-        </button>
-
-    </div>
-
-</nav>
 <main id="overview">
 
     {% for p in pokemons %}
@@ -69,6 +27,9 @@
         </article>
         </a>
 {% endfor %}
+
+{% render 'views/partials/load-more.liquid' %}
+
 </main>
 
 

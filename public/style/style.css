@@ -1,3 +1,5 @@
+/* background video */
+
 #video-bg {
     position: fixed;
     right: 0;
@@ -11,58 +13,150 @@
     display: grid;
     grid-template-columns: 30% 70%;
 
-    h1 {
-        font-size: 24px;
-        background-color:  var(--color-primary-daylight):
+    @media screen and (max-width: 1080px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 20% 70%;
     }
 }
 
+main {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 0.4em;
+    padding: 1em;
+    background-color: var(--color-day);
+    overflow: auto;
+
+    @media screen and (max-width: 1300px) {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+    }
+
+    @media screen and (max-width: 900px) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+    }
+
+    @media screen and (max-width: 700px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+    }
+
+    @media screen and (max-width: 500px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
 #header {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 1rem;
     background-color: var(--color-darkgrey);
-
-    label {
-        color: var(--color-dark);
-
-    }
-    h1 {
-        color: var(--color-dark);
-    }
-
-    button {
-        background-color: var(--color-light);
-        color: var(--color-dark);
-    }
-
 }
 
 #header-elements {
     padding: 8em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    gap: 0.5em;
+
+    @media screen and (max-width: 1080px) {
+        padding: 4em;
+    }
 
 }
 
 #controller {
     display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    align-items: flex-end;
+    justify-content: center;
+    gap: 15em;
+    margin-top: 25em;
 
-    button {
-        border: var(--border-desktop);
+    @media screen and (max-width: 1080px) {
+        margin-top: -9em;
+        padding: 1em;
+        gap: 10em;
+    }
+
+    @media screen and (max-width: 500px) {
+        margin-top: -9em;
+        padding: 1em;
+        gap: 2em;
+    }
+
+}
+
+#controller button {
+    border: var(--border-desktop);
+}
+
+#body-index h1 {
+    font-size: 24px;
+    background-color: var(--color-primary-daylight);
+}
+
+#pokemon-logo {
+
+    @media screen and (max-width: 1080px) {
+        position: relative;
+        right: 100%;
+    }
+
+    @media screen and (max-width: 700px) {
+        position: unset;
+        margin-top: 3em;
     }
 }
 
-main {
-    display: grid;
-    grid-template-columns: repeat(6 ,1fr);
-    grid-template-rows: repeat(6 ,1fr);
-    gap: 0.4em;
-    padding: 1em;
+#header label,
+#header h1 {
+    color: var(--color-dark);
+}
+
+#header button {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border: var(--color-night) solid 2px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 0.5em;
+}
+
+#search-input {
     background-color: var(--color-day);
-    overflow: auto;
+    color: var(--color-dark);
+    height: 3em;
+    border-radius: 0.5em;
+    font-family: "Pokemon-font";
+    border: var(--border-desktop);
+    font-size: 12px;
+
+
+}
+
+#form-search {
+    display: flex;
+    gap: 1em;
+
+    @media screen and (max-width: 1080px) {
+        position: relative;
+        bottom: 75%;
+    }
+
+
+}
+
+.sunicon {
+    padding: 2em;
+}
+
+#rectangle {
+    display: inline-block;
+    background-color: var(--color-day);
 }
 
 #name {
@@ -73,41 +167,34 @@ a:hover ~ #name {
     display: block;
 }
 
-
 article {
     display: flex;
     padding: 1em;
     justify-content: center;
     border: var(--border-desktop);
 
+    h2 {
+        display: none;
+    }
 }
 
-.sunicon {
-    padding: 2em;
+#error {
+    display: flex;
+    align-items: center;
+    margin: 10em;
 }
 
+#error-h2 {
+    color: var(--color-night);
+}
 
 .hidden {
     display: none;
-} 
-
-
-
-#search-input {
-    background-color: var(--color-night);
-    color: var(--color-light);
-    height: 3em;
-    border-radius: 1em;
-    font-family: "Pokemon-font";
-    border: var(--border-desktop);
 }
 
-
-#rectangle {
-    display: inline-block;
-    background-color: var(--color-day);
+#load-more {
+    rotate: -90deg;
+    position: absolute;
+    left: 63%;
+    top: 100%;
 }
-
-
-
-

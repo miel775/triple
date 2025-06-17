@@ -1,11 +1,7 @@
 {% render 'views/partials/head.liquid', title: ' {{ pokemon.name }} ' %}
 
 
-
-<a href="/" id="go-back">
-<img src="../assets/detail/eclips.svg" height="40" width="40x">
-<img src="../assets/detail/arrow.svg" height="25" width="25" id="arrow">
-</a>
+{% render 'views/partials/go-back.liquid' %}
 
 <div id="pokemon-detail">
     <article id="type-{{ pokemon.type | downcase }}" class="detail"> 
