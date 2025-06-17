@@ -4,42 +4,52 @@
 {% render 'views/partials/go-back.liquid' %}
 
 <div id="pokemon-detail">
-    <article id="type-{{ pokemon.type | downcase }}" class="detail"> 
+    <article id="type-{{ pokemon.type | downcase }}" class="detail-article"> 
         <div id="header-article">
             <img 
-                src="{{ pokemon.front }}" 
-                height="200" 
-                width="200" 
-                alt="{{ pokemon.name }}-front">
-            <h2 id="pokemonheadname"> {{ pokemon.name |  upcase }}</h2>
+                src="{{ pokemon.sprite }}" 
+                alt="{{ pokemon.name }}-front"
+                height="200"
+                width="200"
+                id="pokemon-avatar">
+            <h2 id="pokemon-name"> {{ pokemon.name |  upcase }}</h2>
             <p id="pokemon-id"> {{ pokemon.id }} </p>
 
-                {% comment %} svg element voor XP (silohette idee) {% endcomment %}
+            {% comment %} svg element voor XP (silohette idee) {% endcomment %}
+             <div id="pokemon-xp">
+                <img 
+                src="{{ pokemon.front }}" 
+                alt="{{ pokemon.name }}-front"
+                width="50"
+                height="50"
+                id="pokemon-xp-avatar">
+             </div>
             <p id="pokemon-xp"> XP: {{ pokemon.xp }} </p>
             <p id="pokemon-weight"> Weight: {{ pokemon.weight }} </p>
             <p id="pokemon-height"> Height: {{ pokemon.height }} </p>
 
 
                 {% comment %} moet een manier komen om de types te late zien die bij de pokemon past {% endcomment %}
-
+            <div id="pokemon-type">
             {% for type in pokemon.types %}
                 <img 
                         src="../assets/detail/types/type-{{ type.type.name }}.png" 
                         height="50" 
                         width="50" 
                         alt="pokemon-type-{{ type.type.name }}"
-                        id="pokemon-type {{ type.type.name }}">
+                        class="pokemon-type {{ type.type.name }}">
             {% endfor %}
+            </div>
 
+            <div id="pokemon-ability">
                 {% comment %} abilities worden hier getoond {% endcomment %}
                     <ul>
                         {% for ability in pokemon.abilities %}
                             <li>{{ ability.ability.name }}</li>
                         {% endfor %}
                     </ul>
+            </div>
         </div>
-
-
 
         <div id="progressbar-article">
             <label for="progressbar_HP"> HP </label>

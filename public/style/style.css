@@ -19,7 +19,7 @@
     }
 }
 
-main {
+#overview {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -163,19 +163,15 @@ main {
     display: none;
 }
 
-a:hover ~ #name {
+#a-head:hover ~ #name {
     display: block;
 }
 
-article {
+#article-head {
     display: flex;
     padding: 1em;
     justify-content: center;
     border: var(--border-desktop);
-
-    h2 {
-        display: none;
-    }
 }
 
 #error {
@@ -197,4 +193,8 @@ article {
     position: absolute;
     left: 63%;
     top: 100%;
+}
+
+#name {
+    display: none;
 }

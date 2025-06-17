@@ -7,8 +7,8 @@
 <main id="overview">
 
     {% for p in pokemons %}
-        <a href="/pokemon/{{ forloop.index }}">
-        <article id="type-{{ p.type | downcase }}">
+        <a href="/pokemon/{{ forloop.index }}" id="a-head">
+        <article id="type-{{ p.type | downcase }}" id="article-head">
         <h2 id="name {{ p.name }}">{{ p.name | capitalize }}</h2>
         <img 
             src="{{ p.sprite }}" 
