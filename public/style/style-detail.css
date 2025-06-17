@@ -27,7 +27,13 @@
     grid-column-start: 1;
     grid-column-end: 2;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    font-family: "Pokemon-font";
+
+    &.progress {
+        height: 2em;
+        background-color: var(--color-grey);
+    }
 
 
 }
@@ -53,20 +59,12 @@
 }
 
 
+#arrow {
+    position: relative;
+    right: 2.5em;
+    top: -0.5em;
+}
 
-.arrow-left {
-    width: 0;
-    height: 0;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-right: 50px solid var(--color-blue);
-    background-color: var(--color-yellow);
-  }
-
-  #go-back {
-    color: var(--color-yellow);
-    background-color: var(--color-blue);
-    font-size: 2em;
-    padding: 0.1em;
-  }
-
+#go-back {
+    margin: 1em;
+}
