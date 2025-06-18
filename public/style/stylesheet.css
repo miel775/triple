@@ -3,7 +3,144 @@
     color-scheme: light dark;
 
     --color-darkgrey: #474747;
+
+    --color-pokemon-type-grass: #bee2b7;
+    --color-pokemon-type-grass-2: #6f8a6a;
+    --color-pokemon-type-grass-3: #3ca729;
+  
+    --color-pokemon-type-normal: #bdbdbd;
+    --color-pokemon-type-normal-2: #6b6868;
+    --color-pokemon-type-normal-3: #3e3e3e;
+  
+    --color-pokemon-type-fire: #ffb3be;
+    --color-pokemon-type-fire-2: #81444d;
+    --color-pokemon-type-fire-3: #4e2a27;
+  
+    --color-pokemon-type-water: #a5b7ff;
+    --color-pokemon-type-water-2: #334691;
+    --color-pokemon-type-water-3: #1d2c6d;
+  
+    --color-pokemon-type-flying: #aaccff;
+    --color-pokemon-type-flying-2: #345889;
+    --color-pokemon-type-flying-3: #1c3456;
+  
+    --color-pokemon-type-fighting: #e9a8a4;
+    --color-pokemon-type-fighting-2: #a04d4a;
+    --color-pokemon-type-fighting-3: #632624;
+  
+    --color-pokemon-type-poison: #dbbfe7;
+    --color-pokemon-type-poison-2: #835c9a;
+    --color-pokemon-type-poison-3: #4c3360;
+  
+    --color-pokemon-type-electric: #ffe987;
+    --color-pokemon-type-electric-2: #b29a3b;
+    --color-pokemon-type-electric-3: #7e6c24;
+  
+    --color-pokemon-type-ground: #d29e83;
+    --color-pokemon-type-ground-2: #7b573c;
+    --color-pokemon-type-ground-3: #503622;
+  
+    --color-pokemon-type-rock: #ababab;
+    --color-pokemon-type-rock-2: #5e5e5e;
+    --color-pokemon-type-rock-3: #363636;
+  
+    --color-pokemon-type-psychic: #ffbbf4;
+    --color-pokemon-type-psychic-2: #b068a3;
+    --color-pokemon-type-psychic-3: #743570;
+  
+    --color-pokemon-type-ice: #9dd1ff;
+    --color-pokemon-type-ice-2: #4a7ba6;
+    --color-pokemon-type-ice-3: #285177;
+  
+    --color-pokemon-type-bug: #c7f8cc;
+    --color-pokemon-type-bug-2: #68995b;
+    --color-pokemon-type-bug-3: #3c5c33;
+  
+    --color-pokemon-type-ghost: #c095d4;
+    --color-pokemon-type-ghost-2: #724a85;
+    --color-pokemon-type-ghost-3: #42294e;
+  
+    --color-pokemon-type-steel: #c2c2c2;
+    --color-pokemon-type-steel-2: #6a6a6a;
+    --color-pokemon-type-steel-3: #3c3c3c;
+  
+    --color-pokemon-type-dragon: #6aa4f5;
+    --color-pokemon-type-dragon-2: #30578f;
+    --color-pokemon-type-dragon-3: #1a2e53;
+  
+    --color-pokemon-type-dark: #999999;
+    --color-pokemon-type-dark-2: #4c4c4c;
+    --color-pokemon-type-dark-3: #292929;
+  
+    --color-pokemon-type-fairy: #ffa1eb;
+    --color-pokemon-type-fairy-2: #b55f98;
+    --color-pokemon-type-fairy-3: #793866;
     
+    --color-pokemon-type-grass: #2a7f1e;
+    --color-pokemon-type-normal: #2b2b2b;
+    --color-pokemon-type-fire: #391c1a;
+    --color-pokemon-type-water: #141f4a;
+    --color-pokemon-type-flying: #122941;
+    --color-pokemon-type-fighting: #411a19;
+    --color-pokemon-type-poison: #321f47;
+    --color-pokemon-type-electric: #5e511c;
+    --color-pokemon-type-ground: #3d2517;
+    --color-pokemon-type-rock: #222222;
+    --color-pokemon-type-psychic: #5a2a59;
+    --color-pokemon-type-ice: #1b3b5a;
+    --color-pokemon-type-bug: #2a4025;
+    --color-pokemon-type-ghost: #311d3a;
+    --color-pokemon-type-steel: #2a2a2a;
+    --color-pokemon-type-dragon: #111d39;
+    --color-pokemon-type-dark: #1a1a1a;
+    --color-pokemon-type-fairy: #5a2443;
+
+    --brightness: brightness(0%) invert(1);
+
+    /* header elements */
+    --color-dark: #3b3b3b;
+    --color-light: #dcdcff;
+    --color-day: #acacdd;
+    --color-night: #21104b;
+    --color-yelllow: #FFCB05;
+    --color-blue: #3B5BA7;
+    
+
+
+
+    /* font-sizes */
+    --font-h1-dekstop: 128px;
+    --font-h1-tablet: 96px;
+    --font-h1-mobile: 64px;
+
+    --font-h2-desktop: 96px;
+    --font-h2-tablet: 64px;
+    --font-h2-mobile: 48px;
+
+    --font-h3-desktop: 64px;
+    --font-h3-tablet: 36px;
+    --font-h3-mobile: 24px;
+
+    --font-p-desktop: 20px;
+    --font-p-tablet: 16px;
+    --font-p-mobile: 12px;
+
+    /* border */
+
+    --border-desktop: 2px solid var(var(--color-pokemon-type-electric));
+    --border-tablet: 1.5px solid var(var(--color-pokemon-type-electric));
+    --border-mobile: 1px solid var(var(--color-pokemon-type-electric));
+}
+
+[data-theme="dark"] {
+    /* inverted colors */
+    --color-light: #0f0f43;
+    --color-dark: #d3d3d3;
+    --color-day: #21104b;
+    --color-night: #acacdd;
+    --color-blue: #FFCB05;
+    --color-yellow: #3B5BA7;
+
     --color-pokemon-type-grass: #bee2b7;
     --color-pokemon-type-grass-2: #6f8a6a;
     --color-pokemon-type-grass-3: #3ca729;
@@ -76,49 +213,9 @@
     --color-pokemon-type-fairy-2: #b55f98;
     --color-pokemon-type-fairy-3: #793866;
 
-    /* header elements */
-    --color-dark: #3b3b3b;
-    --color-light: #dcdcff;
-    --color-day: #acacdd;
-    --color-night: #21104b;
-    --color-yelllow: #FFCB05;
-    --color-blue: #3B5BA7;
-    
+    --brightness: brightness(0%);
 
 
-
-    /* font-sizes */
-    --font-h1-dekstop: 128px;
-    --font-h1-tablet: 96px;
-    --font-h1-mobile: 64px;
-
-    --font-h2-desktop: 96px;
-    --font-h2-tablet: 64px;
-    --font-h2-mobile: 48px;
-
-    --font-h3-desktop: 64px;
-    --font-h3-tablet: 36px;
-    --font-h3-mobile: 24px;
-
-    --font-p-desktop: 20px;
-    --font-p-tablet: 16px;
-    --font-p-mobile: 12px;
-
-    /* border */
-
-    --border-desktop: 2px solid var(var(--color-pokemon-type-electric));
-    --border-tablet: 1.5px solid var(var(--color-pokemon-type-electric));
-    --border-mobile: 1px solid var(var(--color-pokemon-type-electric));
-}
-
-[data-theme="dark"] {
-    /* inverted colors */
-    --color-light: #0f0f43;
-    --color-dark: #d3d3d3;
-    --color-day: #21104b;
-    --color-night: #acacdd;
-    --color-blue: #FFCB05;
-    --color-yellow: #3B5BA7;
   }
 
 * {
@@ -640,4 +737,44 @@ body.sun {
   .progress-type-fairy::-webkit-progress-value {
     background: var(--color);
   }
+
+  /* view transition */
+
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation: 0.4s ease-in both move-out;
+  }
   
+  ::view-transition-new(root) {
+    animation: 0.4s ease-in both move-in;
+  }
+
+  @keyframes move-out {
+    from {
+      transform: translateY(0%);
+    }
+  
+    to {
+      transform: translateY(-100%);
+    }
+  }
+  
+  @keyframes move-in {
+    from {
+      transform: translateY(100%);
+    }
+  
+    to {
+      transform: translateY(0%);
+    }
+  }
+
+  .evolution-grass {
+
+  .active {
+    background-color: var(--color-pokemon-type-grass-3);
+  }
+}

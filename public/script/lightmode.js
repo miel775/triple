@@ -43,3 +43,5 @@ theButton.addEventListener('click', () => {
     videoBgNight.style.display = 'none';
 }
 });
+
+// button niet laten zien wanneer javascript niet werkt

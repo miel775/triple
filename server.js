@@ -20,7 +20,7 @@ const apiBase = "https://pokeapi.co/api/v2/";
 
 app.get('/', async (req, res) => {
     try {
-        const response = await fetch(`${apiBase}pokemon?limit=30`)
+        const response = await fetch(`${apiBase}pokemon?limit=20`)
         const data = await response.json()
 
         const pokemonsWithSprites = await Promise.all(
@@ -54,10 +54,15 @@ app.get('/pokemon/:id', async (req, res) => {
         if (!response.ok) throw new Error("Pokemon not found");
         const data = await response.json();
 
-        // Optional: If evolution-chain id does not match, you may need a different lookup
-        const evolutionChain = await fetch(`${apiBase}evolution-chain/${id}`);
-        const evolutionChainJSON = await evolutionChain.json();
+        // haal de data op van de pokemon species
+        
 
+        // haal de date op van de evolution chain
+
+
+        // laat de json file zien van de evolutionchain pad van evolution chain
+
+        
         const pokemon = {
             name: data.name,
             front: data.sprites.front_default,
@@ -70,7 +75,7 @@ app.get('/pokemon/:id', async (req, res) => {
             weight: data.weight,
             height: data.height,
             types: data.types,
-            abilities: data.abilities, // removed `.data`, it doesn’t exist here
+            abilities: data.abilities,
             hp: data.stats[0].base_stat,
             attack: data.stats[1].base_stat,
             defense: data.stats[2].base_stat,
@@ -92,7 +97,7 @@ app.get('/search', async (req, res) => {
     try {
         const keyword = req.query.p?.toLowerCase() || "";
 
-        const response = await fetch(`${apiBase}pokemon?limit=150`);
+        const response = await fetch(`${apiBase}pokemon`);
         const data = await response.json();
 
         const results = data.results.filter(pokemon =>
@@ -100,7 +105,7 @@ app.get('/search', async (req, res) => {
         );
 
         if (results.length === 0) {
-            return res.render('error.liquid');
+            return res.render('empty.liquid');
         }
 
         const detailedResults = await Promise.all(results.map(async (pokemon) => {

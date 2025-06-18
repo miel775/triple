@@ -118,14 +118,18 @@
 
         <div id="evolutionbar-article">
             <div id="first-evolution" class="type-{{ pokemon.type | downcase }}">
+                <p> {{ EvolutionChain.firstEvolution }} </p>
                 {% comment %} if it is the first evolution show first {% endcomment %}
             </div>
 
             <div id="second-evolution" class="type-{{ pokemon.type | downcase }}">
+                <p> {{ EvolutionChain.secondEvolution }} </p>
+
                 {% comment %} if it is the second evolution show second {% endcomment %}
             </div>
 
             <div id="third-evolution" class="type-{{ pokemon.type | downcase }}">
+                <p> {{ EvolutionChain.thirdEvolution }} </p>
                 {% comment %} if it is the third evolution show third {% endcomment %}
             </div>
         </div>

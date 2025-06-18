@@ -10,10 +10,26 @@
     scale: 1.2;
     z-index: -1;
 
+    @media screen and (max-width: 1200px) {
+        width: 130%;
+    }
 
-    @media screen and (max-width: 1280px) {
+
+    @media screen and (max-width: 1000px) {
         width: 150%;
+    }
+
+    @media screen and (max-width: 800px) {
+        width: 220%;
         right: -15em;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 300%;
+    }
+
+    @media screen and (max-width: 300px) {
+        width: 300%;
     }
 }
 
@@ -27,9 +43,26 @@
     scale: 1.2;
     z-index: -1;
 
-    @media screen and (max-width: 1280px) {
+    @media screen and (max-width: 1200px) {
+        width: 130%;
+    }
+
+
+    @media screen and (max-width: 1000px) {
         width: 150%;
+    }
+
+    @media screen and (max-width: 800px) {
+        width: 220%;
         right: -15em;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 300%;
+    }
+
+    @media screen and (max-width: 300px) {
+        width: 300%;
     }
 }
 
@@ -45,24 +78,24 @@
 
 #overview {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     gap: 0.4em;
     padding: 1em;
     overflow: auto;
 
     @media screen and (max-width: 1300px) {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(7, 1fr);
     }
 
     @media screen and (max-width: 900px) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(8, 1fr);
     }
 
     @media screen and (max-width: 700px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(9, 1fr);
     }
 
@@ -184,18 +217,24 @@
     display: none;
 }
 
-#a-head:hover ~ #name {
+#a-head:hover ~ #name-head {
     display: block;
 }
 
-#article-head {
+.article-head {
     display: flex;
-    padding: 1em;
+    padding: 2em;
     justify-content: center;
     border: var(--border-desktop);
 }
 
 #error {
+    display: flex;
+    align-items: center;
+    margin: 10em;
+}
+
+#empty {
     display: flex;
     align-items: center;
     margin: 10em;
