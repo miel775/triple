@@ -1,9 +1,7 @@
-Ontwerp en maak een data driven online concept voor een opdrachtgever
-
-De instructies voor deze opdracht staan in: [docs/INSTRUCTIONS.md](https://github.com/fdnd-task/proof-of-concept/blob/main/docs/INSTRUCTIONS.md)
-
 # Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+PokeApp
+![title](https://github.com/user-attachments/assets/8a10a94d-d53a-4c6c-a01d-66b75de2bde9)
+
 
 ## Inhoudsopgave
 
