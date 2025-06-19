@@ -115,44 +115,55 @@
                 <progress id="progressbar_speed"  class="progress-type-{{ pokemon.type | downcase }}" value="{{ pokemon.speed }}" max="200"> {{ pokemon.speed }} </progress>
         </div>
 
-
-        <div id="evolutionbar-article">
-            {% comment %} als de evolutie de eerste is is dan active erachter zetten  {% endcomment %}
-            <div class="fe-{{ pokemon.type | downcase }}{% if activeState == 'first' %}-active{% endif %}">
-                {% if activeState != 'first' and firstEvo %}
-                    <img 
-                    src="{{ pokemon.front }}" 
-                    alt="{{ pokemon.name }}"
-                    height="100"
-                    width="100">
-
-                    <a href="/pokemon/{{ firstEvo }}">
-                        <p>{{ evoChainData.firstEvolution }}</p>
-                    </a>
-
-                {% else %}
-                    <p>{{ evoChainData.firstEvolution }} Active </p>
-                {% endif %}
-            </div>
-
-            <div id="second-evolution" class="fe-{{ pokemon.type | downcase }}{% if activeState == 'second' %}-active{% endif %}">
- 
-           <a href="/pokemon/{{ secondEvo }}">
-             <p>{{ EvolutionChain.secondEvolution | capitalize }}</p>
-           </a>
-         {% else %}
-           <p>{{ EvolutionChain.secondEvolution | capitalize }} <small>(Current)</small></p>
-         {% endif %}
-       </div>
-
-                {% comment %} if it is the second evolution show second {% endcomment %}
-            </div>
-
-            <div id="third-evolution" class="type-{{ pokemon.type | downcase }}">
-                <p> {{ EvolutionChain.thirdEvolution }} </p>
-                {% comment %} if it is the third evolution show third {% endcomment %}
-            </div>
+        {% assign currentStage = EvolutionChain.currentStage %}
+        <!-- First Evolution -->
+        {% assign first = EvolutionChain.first %}
+        <div id="first-evolution"
+             class="fe-type-{{ first.type }}{% if currentStage == 'first' %}-active{% endif %}">
+          {% if currentStage != 'first' %}
+            <a href="/pokemon/{{ first.name }}">
+              <img src="{{ first.image }}" alt="{{ first.name }}">
+              <p>{{ first.name | capitalize }}</p>
+            </a>
+          {% else %}
+            <img src="{{ first.image }}" alt="{{ first.name }}">
+            <p>{{ first.name | capitalize }} <small>(Current)</small></p>
+          {% endif %}
         </div>
+        
+        <!-- Second Evolution -->
+        {% assign second = EvolutionChain.second %}
+        {% if second %}
+        <div id="second-evolution"
+             class="fe-type-{{ second.type }}{% if currentStage == 'second' %}-active{% endif %}">
+          {% if currentStage != 'second' %}
+            <a href="/pokemon/{{ second.name }}">
+              <img src="{{ second.image }}" alt="{{ second.name }}">
+              <p>{{ second.name | capitalize }}</p>
+            </a>
+          {% else %}
+            <img src="{{ second.image }}" alt="{{ second.name }}">
+            <p>{{ second.name | capitalize }} <small>(Current)</small></p>
+          {% endif %}
+        </div>
+        {% endif %}
+        
+        <!-- Third Evolution -->
+        {% assign third = EvolutionChain.third %}
+        {% if third %}
+        <div id="third-evolution"
+             class="fe-type-{{ third.type }}{% if currentStage == 'third' %}-active{% endif %}">
+          {% if currentStage != 'third' %}
+            <a href="/pokemon/{{ third.name }}">
+              <img src="{{ third.image }}" alt="{{ third.name }}">
+              <p>{{ third.name | capitalize }}</p>
+            </a>
+          {% else %}
+            <img src="{{ third.image }}" alt="{{ third.name }}">
+            <p>{{ third.name | capitalize }} <small>(Current)</small></p>
+          {% endif %}
+        </div>
+        {% endif %}
     </article>
 </div>
 

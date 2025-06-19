@@ -52,7 +52,53 @@ app.get('/pokemon/:id', async (req, res) => {
     try {
         const response = await fetch(`${apiBase}pokemon/${id}`);
         if (!response.ok) throw new Error("Pokemon not found");
+      
         const data = await response.json();
+        
+        // haal de data op van de pokemon species
+        const speciesResponse = await fetch(data.species.url);
+        const speciesData = await speciesResponse.json();
+
+        // haal de date op van de evolution chain
+        const evoChainResponse = await fetch(speciesData.evolution_chain.url);
+        const evoChainData = await evoChainResponse.json();
+      
+        const chain = evoChainData.chain;
+
+        const firstName = chain.species.name;
+        const secondName = chain.evolves_to[0]?.species?.name || null;
+        const thirdName = chain.evolves_to[0]?.evolves_to[0]?.species?.name || null;
+
+        // zorgen dat dit dezelfde pokemon is van de evolutionchain
+        const getPokemonData = async (name) => {
+            const response = await fetch(`${apiBase}pokemon/${name}`);
+            if (!response.ok) return null;
+            const pokemonEvo = await response.json();
+            return {
+              name: pokemonEvo.name,
+              image: pokemonEvo.sprites.front_default,
+              type: pokemonEvo.types[0].type.name
+            };
+          };
+
+        // krijgen van de pokemon data anders laat niks zien
+        const firstData = await getPokemonData(firstName);
+        const secondData = secondName ? await getPokemonData(secondName) : null;
+        const thirdData = thirdName ? await getPokemonData(thirdName) : null;
+
+        // nieuwe benaming van de states first, second en third
+        const activeState =
+        pokemon.name === firstName ? "first" :
+        pokemon.name === secondName ? "second" :
+        pokemon.name === thirdName ? "third" : null;
+
+        // laat de json file zien van de evolutionchain pad van evolution chain
+        const evolutionChain = {
+            first: firstData,
+            second: secondData,
+            third: thirdData,
+            activeState
+        };
 
         const pokemon = {
             name: data.name,
@@ -74,41 +120,8 @@ app.get('/pokemon/:id', async (req, res) => {
             special_defense: data.stats[4].base_stat,
             speed: data.stats[5].base_stat,
             type: data.types[0].type.name,
-            typeTwo: data.types[1].type.name
-        };
-
-        // haal de data op van de pokemon species
-        const speciesResponse = await fetch(data.species.url);
-        const speciesData = await speciesResponse.json();
-
-        // haal de date op van de evolution chain
-        const evoChainResponse = await fetch(speciesData.evolution_chain.url);
-        const evoChainData = await evoChainResponse.json();
-
-        const chain = evoChainData.chain;
-
-        const firstName = chain.species.name;
-        const secondName = chain.evolves_to[0]?.species?.name || null;
-        const thirdName = chain.evolves_to[0]?.evolves_to[0]?.species?.name || null;
-
-        // krijgen van de pokemon data anders laat niks zien
-        const firstData = await getPokemonData(firstName);
-        const secondData = secondName ? await getPokemonData(secondName) : null;
-        const thirdData = thirdName ? await getPokemonData(thirdName) : null;
-
-        // nieuwe benaming van de states first, second en third
-        const activeState =
-        pokemon.name === firstName ? "first" :
-        pokemon.name === secondName ? "second" :
-        pokemon.name === thirdName ? "third" : null;
-        // laat de json file zien van de evolutionchain pad van evolution chain
-
-        const evolutionChain = {
-            first: firstData,
-            second: secondData,
-            third: thirdData,
-            activeState
-        };
+            typeTwo: data.types[1]?.type?.name || null 
+          };
         
 
 
