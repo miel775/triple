@@ -120,23 +120,35 @@
         {% assign first = EvolutionChain.first %}
         {% if first %}
         <div id="first-evolution"
-             class="fe-type-{{ first.type }}{% if EvolutionChain.activeState == 'first' %}-active{% endif %}">
+             class="fe-type{{ first.type }}{% if EvolutionChain.activeState == 'first' %} active{% endif %}">
           {% if EvolutionChain.activeState != 'first' %}
             <a href="/pokemon/{{ first.name }}">
               <img 
               src="{{ first.image }}" 
               alt="{{ first.name }}"
               height="50"
-              width="50">
-              <p>{{ first.name }}</p>
+              width="50"
+              id="img-evolution">
             </a>
+
+            <div id="animation-hover-2">
+              <img src="../assets/general/balloon.svg" alt="ballon-{{ first.name }}" width="200" height="100" loading="lazy">
+              <p id="name {{ first.name }}"> {{ first.name | capitalize }}</p>
+            </div>
+            
           {% else %}
                 <img 
                 src="{{ first.image }}" 
                 alt="{{ first.name }}"
                 height="75"
-                width="75">
-            <p>{{ first.name }} Active</p>
+                width="75"
+                id="img-evolution">
+
+                <div id="animation-hover-2">
+                  <img src="../assets/general/balloon.svg" alt="ballon-{{ first.name }}" width="200" height="100" loading="lazy">
+                  <p id="name {{ first.name }}"> {{ first.name | capitalize }}</p>
+                </div>
+
           {% endif %}
         </div>
         {% endif %}
@@ -144,15 +156,25 @@
         {% assign second = EvolutionChain.second %}
         {% if second %}
         <div id="second-evolution"
-             class="fe-type-{{ second.type }}{% if EvolutionChain.activeState == 'second' %}-active{% endif %}">
+             class="fe-type{{ second.type }}{% if EvolutionChain.activeState == 'second' %} active{% endif %}">
           {% if EvolutionChain.activeState != 'second' %}
             <a href="/pokemon/{{ second.name }}">
-              <img src="{{ second.image }}" alt="{{ second.name }}">
-              <p>{{ second.name }}</p>
+              <img src="{{ second.image }}" alt="{{ second.name }}" id="img-evolution">
+
+              <div id="animation-hover-2">
+                <img src="../assets/general/balloon.svg" alt="ballon-{{ second.name }}" width="200" height="100" loading="lazy">
+                <p id="name {{ second.name }}"> {{ second.name | capitalize }}</p>
+              </div>
+
             </a>
           {% else %}
-            <img src="{{ second.image }}" alt="{{ second.name }}">
-            <p>{{ second.name }} Active</p>
+            <img src="{{ second.image }}" alt="{{ second.name }}" id="img-evolution">
+
+            <div id="animation-hover-2">
+              <img src="../assets/general/balloon.svg" alt="ballon-{{ second.name }}" width="200" height="100" loading="lazy">
+              <p id="name {{ second.name }}"> {{ second.name | capitalize }}</p>
+            </div>
+
           {% endif %}
         </div>
         {% endif %}
@@ -160,15 +182,26 @@
         {% assign third = EvolutionChain.third %}
         {% if third %}
         <div id="third-evolution"
-             class="fe-type-{{ third.type }}{% if EvolutionChain.activeState == 'third' %}-active{% endif %}">
+             class="fe-type{{ third.type }}{% if EvolutionChain.activeState == 'third' %} active{% endif %}">
           {% if EvolutionChain.activeState != 'third' %}
             <a href="/pokemon/{{ third.name }}">
-              <img src="{{ third.image }}" alt="{{ third.name }}">
-              <p>{{ third.name }}</p>
+              <img src="{{ third.image }}" alt="{{ third.name }}" id="img-evolution">
+
+              {% comment %} animation {% endcomment %}
+              <div id="animation-hover-2">
+                <img src="../assets/general/balloon.svg" alt="ballon-{{ third.name }}" width="200" height="100" loading="lazy">
+                <p id="name {{ third.name }}"> {{ third.name | capitalize }}</p>
+              </div>
+
             </a>
           {% else %}
-            <img src="{{ third.image }}" alt="{{ third.name }}">
-            <p>{{ third.name }} Active </p>
+            <img src="{{ third.image }}" alt="{{ third.name }}" id="img-evolution">
+
+              <div id="animation-hover-2">
+                <img src="../assets/general/balloon.svg" alt="ballon-{{ third.name }}" width="200" height="100" loading="lazy">
+                <p id="name {{ third.name }}"> {{ third.name | capitalize }}</p>
+              </div>
+
           {% endif %}
         </div>
         {% endif %}

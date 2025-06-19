@@ -45,14 +45,9 @@
     position: relative;
     overflow: scroll;
 
-    /* :hover {
-        scale: 1.2;
-        filter:drop-shadow()
-    } */
-
     @media screen and (max-width: 1300px) {
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 20% 20% 20% 20% 20%;
+        grid-template-rows: repeat(5, 1fr)
     }
 
     @media screen and (max-width: 900px) {
@@ -161,6 +156,10 @@
     border: var(--border-desktop);
     font-size: 12px;
 
+    &:hover {
+        border: var(--color-night) -2px solid;
+        transition-duration: 2s;
+    }
 }
 
 #form-search {
