@@ -54,15 +54,6 @@ app.get('/pokemon/:id', async (req, res) => {
         if (!response.ok) throw new Error("Pokemon not found");
         const data = await response.json();
 
-        // haal de data op van de pokemon species
-        
-
-        // haal de date op van de evolution chain
-
-
-        // laat de json file zien van de evolutionchain pad van evolution chain
-
-        
         const pokemon = {
             name: data.name,
             front: data.sprites.front_default,
@@ -85,6 +76,41 @@ app.get('/pokemon/:id', async (req, res) => {
             type: data.types[0].type.name,
             typeTwo: data.types[1].type.name
         };
+
+        // haal de data op van de pokemon species
+        const speciesResponse = await fetch(data.species.url);
+        const speciesData = await speciesResponse.json();
+
+        // haal de date op van de evolution chain
+        const evoChainResponse = await fetch(speciesData.evolution_chain.url);
+        const evoChainData = await evoChainResponse.json();
+
+        const chain = evoChainData.chain;
+
+        const firstName = chain.species.name;
+        const secondName = chain.evolves_to[0]?.species?.name || null;
+        const thirdName = chain.evolves_to[0]?.evolves_to[0]?.species?.name || null;
+
+        // krijgen van de pokemon data anders laat niks zien
+        const firstData = await getPokemonData(firstName);
+        const secondData = secondName ? await getPokemonData(secondName) : null;
+        const thirdData = thirdName ? await getPokemonData(thirdName) : null;
+
+        // nieuwe benaming van de states first, second en third
+        const activeState =
+        pokemon.name === firstName ? "first" :
+        pokemon.name === secondName ? "second" :
+        pokemon.name === thirdName ? "third" : null;
+        // laat de json file zien van de evolutionchain pad van evolution chain
+
+        const evolutionChain = {
+            first: firstData,
+            second: secondData,
+            third: thirdData,
+            activeState
+        };
+        
+
 
         res.render('pokemon.liquid', { pokemon })
     } catch (err) {

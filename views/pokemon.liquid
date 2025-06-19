@@ -117,13 +117,33 @@
 
 
         <div id="evolutionbar-article">
-            <div id="first-evolution" class="type-{{ pokemon.type | downcase }}">
-                <p> {{ EvolutionChain.firstEvolution }} </p>
-                {% comment %} if it is the first evolution show first {% endcomment %}
+            {% comment %} als de evolutie de eerste is is dan active erachter zetten  {% endcomment %}
+            <div class="fe-{{ pokemon.type | downcase }}{% if activeState == 'first' %}-active{% endif %}">
+                {% if activeState != 'first' and firstEvo %}
+                    <img 
+                    src="{{ pokemon.front }}" 
+                    alt="{{ pokemon.name }}"
+                    height="100"
+                    width="100">
+
+                    <a href="/pokemon/{{ firstEvo }}">
+                        <p>{{ evoChainData.firstEvolution }}</p>
+                    </a>
+
+                {% else %}
+                    <p>{{ evoChainData.firstEvolution }} Active </p>
+                {% endif %}
             </div>
 
-            <div id="second-evolution" class="type-{{ pokemon.type | downcase }}">
-                <p> {{ EvolutionChain.secondEvolution }} </p>
+            <div id="second-evolution" class="fe-{{ pokemon.type | downcase }}{% if activeState == 'second' %}-active{% endif %}">
+ 
+           <a href="/pokemon/{{ secondEvo }}">
+             <p>{{ EvolutionChain.secondEvolution | capitalize }}</p>
+           </a>
+         {% else %}
+           <p>{{ EvolutionChain.secondEvolution | capitalize }} <small>(Current)</small></p>
+         {% endif %}
+       </div>
 
                 {% comment %} if it is the second evolution show second {% endcomment %}
             </div>
