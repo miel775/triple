@@ -739,11 +739,13 @@ body.sun {
   }
 
 
-  .fe-type-grass {
+  .fe-type-grass img {
+    display: flex;
+    justify-content: center;
     background-color: var(--color-pokemon-type-grass-3);
     border: 2px solid var(--color-pokemon-type-grass);
 
-    -active {
+    -active img {
         scale: 1.2;
         background-color: var(--color-pokemon-type-grass-2);
         border: 2px solid var(--color-pokemon-type-grass-3);

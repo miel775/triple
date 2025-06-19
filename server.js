@@ -54,6 +54,30 @@ app.get('/pokemon/:id', async (req, res) => {
         if (!response.ok) throw new Error("Pokemon not found");
       
         const data = await response.json();
+
+        const pokemon = {
+            name: data.name,
+            front: data.sprites.front_default,
+            back: data.sprites.back_default,
+            sprite: data.sprites.other.dream_world.front_default,
+            gif: data.sprites.other.showdown.front_default,
+            audio: data.cries.latest,
+            id: data.id,
+            xp: data.base_experience,
+            weight: data.weight,
+            height: data.height,
+            types: data.types,
+            abilities: data.abilities,
+            hp: data.stats[0].base_stat,
+            attack: data.stats[1].base_stat,
+            defense: data.stats[2].base_stat,
+            special_attack: data.stats[3].base_stat,
+            special_defense: data.stats[4].base_stat,
+            speed: data.stats[5].base_stat,
+            type: data.types[0].type.name,
+            typeTwo: data.types[1]?.type?.name || null 
+          };
+
         
         // haal de data op van de pokemon species
         const speciesResponse = await fetch(data.species.url);
@@ -100,32 +124,10 @@ app.get('/pokemon/:id', async (req, res) => {
             activeState
         };
 
-        const pokemon = {
-            name: data.name,
-            front: data.sprites.front_default,
-            back: data.sprites.back_default,
-            sprite: data.sprites.other.dream_world.front_default,
-            gif: data.sprites.other.showdown.front_default,
-            audio: data.cries.latest,
-            id: data.id,
-            xp: data.base_experience,
-            weight: data.weight,
-            height: data.height,
-            types: data.types,
-            abilities: data.abilities,
-            hp: data.stats[0].base_stat,
-            attack: data.stats[1].base_stat,
-            defense: data.stats[2].base_stat,
-            special_attack: data.stats[3].base_stat,
-            special_defense: data.stats[4].base_stat,
-            speed: data.stats[5].base_stat,
-            type: data.types[0].type.name,
-            typeTwo: data.types[1]?.type?.name || null 
-          };
-        
-
-
-        res.render('pokemon.liquid', { pokemon })
+        res.render('pokemon.liquid', {
+            pokemon,
+            EvolutionChain: evolutionChain
+         })
     } catch (err) {
         res.render('error.liquid')
     }
