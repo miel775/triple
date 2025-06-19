@@ -141,9 +141,27 @@ app.get('/search', async (req, res) => {
         const response = await fetch(`${apiBase}pokemon`);
         const data = await response.json();
 
-        const results = data.results.filter(pokemon =>
+        let results = data.results.filter(pokemon =>
             pokemon.name.toLowerCase().includes(keyword)
         );
+
+        // het wordt gesorteerd op goede volgorde
+        results = results.sort((first, second) => {
+            const firstName = first.name.toLowerCase();
+            const secondName = second.name.toLowerCase();
+
+            if (firstName === keyword) return -1;
+            if (secondName === keyword) return 1;
+
+            const firstStarts = firstName.startsWith(keyword);
+            const secondStarts = secondName.startsWith(keyword);
+
+            if (firstStarts && !secondStarts) return -1;
+            if (!firstStarts && secondStarts) return 1;
+
+            return firstName.localeCompare(secondName);
+        });
+        // anders laat een lege liquid file zien
 
         if (results.length === 0) {
             return res.render('empty.liquid');
@@ -157,8 +175,8 @@ app.get('/search', async (req, res) => {
                 name: details.name,
                 sprite: details.sprites.other.dream_world.front_default,
                 gif: details.sprites.other.showdown.front_default,
-                audio: details.cries.latest
-            }
+                type: details.types[0].type.name
+            };
         }));
 
         res.render('index.liquid', {

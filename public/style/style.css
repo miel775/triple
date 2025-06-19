@@ -1,5 +1,4 @@
 /* background video */
-
 #video-bg {
     display: block;
     position: fixed;
@@ -13,7 +12,6 @@
     @media screen and (max-width: 1200px) {
         width: 130%;
     }
-
 
     @media screen and (max-width: 1000px) {
         width: 150%;
@@ -69,6 +67,7 @@
 #body-index {
     display: grid;
     grid-template-columns: 30% 70%;
+    overflow: hidden;
 
     @media screen and (max-width: 1080px) {
         grid-template-columns: 1fr;
@@ -78,15 +77,22 @@
 
 #overview {
     display: grid;
+    max-width: 100%;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows:repeat(5, 1fr);
     gap: 0.4em;
     padding: 1em;
-    overflow: auto;
+    position: relative;
+    overflow: scroll;
+
+    /* :hover {
+        scale: 1.2;
+        filter:drop-shadow()
+    } */
 
     @media screen and (max-width: 1300px) {
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(7, 1fr);
+        grid-template-rows: 20% 20% 20% 20% 20%;
     }
 
     @media screen and (max-width: 900px) {
@@ -112,6 +118,11 @@
     align-items: center; 
     gap: 1rem;
     background-color: var(--color-darkgrey);
+    overflow: hidden;
+
+    @media screen and (max-width: 1080px) {
+        padding: 4em;
+    }
 }
 
 #header-elements {
@@ -124,14 +135,13 @@
     @media screen and (max-width: 1080px) {
         padding: 4em;
     }
-
 }
 
 #controller {
     display: flex;
     justify-content: center;
     gap: 15em;
-    margin-top: 25em;
+    margin-top: 20em;
 
     @media screen and (max-width: 1080px) {
         margin-top: -9em;
@@ -144,7 +154,6 @@
         padding: 1em;
         gap: 2em;
     }
-
 }
 
 #controller button {
@@ -192,7 +201,6 @@
     border: var(--border-desktop);
     font-size: 12px;
 
-
 }
 
 #form-search {
@@ -214,19 +222,15 @@
     background-color: var(--color-day);
 }
 
-.name-head {
-    display: none;
-}
-
-#a-head:hover ~ #name-head {
-    display: block;
-}
-
 .article-head {
     display: flex;
-    padding: 2em;
+    padding: 1em;
     justify-content: center;
     border: var(--border-desktop);
+    position: relative;
+    overflow: hidden;
+    max-width: 8em;
+    max-height: 8em;
 }
 
 #error {
@@ -256,14 +260,47 @@
     top: 100%;
 }
 
-#name {
-    display: none;
-}
-
 #error-page {
     background-color: var(--color-dark);
 
     h2 {
     color: var(--color-light);
     }
+}
+
+#pokeball {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    z-index: 5;
+    width: 2em;
+    height: auto;
+
+    &img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+#animation-hover {
+    display: none;
+    position: absolute;
+    top: 2em;      
+    right: 3em;
+    width: 80%; 
+    animation: animation-hover 1s  forwards;
+    z-index: 10;
+
+    p {
+        position: relative;
+        bottom: 5.5em;
+        left: 2em;
+        color: var(--color-night);
+        scale: 0.7;
+    }
+}
+
+.article-head:hover #animation-hover {
+    display: block;
 }

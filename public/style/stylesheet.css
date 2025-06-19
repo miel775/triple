@@ -766,25 +766,6 @@ body.sun {
     animation: 0.4s ease-in both move-in;
   }
 
-  @keyframes move-out {
-    from {
-      transform: translateY(0%);
-    }
-  
-    to {
-      transform: translateY(-100%);
-    }
-  }
-  
-  @keyframes move-in {
-    from {
-      transform: translateY(100%);
-    }
-  
-    to {
-      transform: translateY(0%);
-    }
-  }
 
   .evolution-grass {
 

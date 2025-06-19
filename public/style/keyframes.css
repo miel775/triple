@@ -1,0 +1,43 @@
+
+@keyframes move-out {
+    from {
+      transform: translateY(0%);
+    }
+  
+    to {
+      transform: translateY(-100%);
+    }
+  }
+  
+  @keyframes move-in {
+    from {
+      transform: translateY(100%);
+    }
+  
+    to {
+      transform: translateY(0%);
+    }
+  }
+
+
+@keyframes border-animation {
+    0% {
+        scale: 3;
+        opacity: 0;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes animation-hover {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 1;
+    }
+}

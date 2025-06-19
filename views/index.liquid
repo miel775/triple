@@ -5,45 +5,45 @@
 {% render 'views/partials/nav.liquid' %}
 
 <main id="overview">
+       
 
     {% for p in pokemons %}
+
         <a href="/pokemon/{{ forloop.index }}" id="a-head">
-        <article id="type-{{ p.type | downcase }}" class="article-head">
+            <article id="type-{{ p.type | downcase }}" class="article-head">
 
-        {% comment %} caught pokemon {% endcomment %}
-        {% if caught %}
-        <form method="POST" action="/pokemon/{{ id }}/caught" data-enhanced="pokemon-{{ id }}">
-            <img src="..assets/general/caught.png" width="10" height="10">
-        </form>
-        {% else %}
-        {% comment %} als niet in gevangen {% endcomment %}
-            <form method="POST" action="/pokemon/{{ id }}/caught" data-enhanced="formulier-{{ id }}">
-            <img src="..assets/general/uncaught.png" width="10" height="10">
-        </form>
-        {% endif %}
+                {% comment %} caught pokemon {% endcomment %}
+                <div class="pokeball">
+                    {% if caught %}
+                    <form method="POST" action="/pokemon/{{ id }}/caught" data-enhanced="pokemon-{{ id }}">
+                    <img src="../assets/general/caught.png" alt="Pokeball caught">
+                    </form>
+                    {% comment %} Als de pokemon nog niet is gevangen {% endcomment %}
+                    {% else %} 
+                    <form method="POST" action="/pokemon/{{ id }}/caught" data-enhanced="formulier-{{ id }}">
+                    <img src="../assets/general/uncaught.png" alt="Pokeball uncaught">
+                    </form>
+                    {% endif %}
+                </div>
 
-        <h2 id="name {{ p.name }}" class="name-head">{{ p.name | capitalize }}</h2>
-        <img 
-            src="{{ p.sprite }}" 
-            height="100" 
-            width="100" 
-            alt="{{ p.name }}"
-            onclick="playAudio()"
-            aria-hidden="true"
-            >
-            
-            {% comment %} deze moet opgelost worden {% endcomment %}
-            <audio>
-                <source src="../assets/general/cries_pokemon_latest_7.ogg" typ="audio/ogg" id="audio">
-            </audio>
 
-        </article>
+                <img 
+                    src="{{ p.sprite }}" 
+                    height="100" 
+                    width="100" 
+                    alt="{{ p.name }}"
+                    onclick="playAudio()"
+                    aria-hidden="true"
+                >
+
+                <div id="animation-hover">
+                    <img src="../assets/general/balloon.svg" alt="ballon-{{ p.name }}" width="200" height="100" loading="lazy">
+                    <p id="name {{ p.name }}"> {{ p.name | capitalize }}</p>
+                </div>
+                
+            </article>
         </a>
 {% endfor %}
-
-{% render 'views/partials/load-more.liquid' %}
-
-
 
 
 </main>
@@ -55,11 +55,6 @@
 <video autoplay muted loop id="video-bg-night">
     <source src="../assets/general/pokemon-background-night.mp4" type="video/mp4">
 </video>
-
-
-
-    <script src="../script/audio.js" defer></script>
-
 
 </body>
 </html>
