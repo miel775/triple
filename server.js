@@ -169,6 +169,10 @@ app.get('/search', async (req, res) => {
     }
 })
 
+app.post('/pokemon/:id/caught', (req, res) => {
+    const id = req.params.id;
+})
+
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
