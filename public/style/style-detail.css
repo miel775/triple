@@ -1,3 +1,7 @@
+.body-index-2 {
+    height: 100%;
+}
+
 .detail-article {
     display: grid;
     width: 75%;
@@ -9,6 +13,7 @@
 
     @media screen and (max-width: 1080px) { 
         grid-template-rows: 40% 50% 10%;
+        grid-template-columns: 100%;
     }
 }
 
@@ -18,21 +23,20 @@
     align-items: center;
 }
 
-
-
 #header-article {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
     display: grid;
-    grid-template-columns: 30% 10% 10% 10% 15% 15% 10%;
+    grid-template-columns: 30% 10% 10% 10% 10% 15% 10%;
     grid-template-rows: 50% auto;
+    gap: 1em;
 
     @media screen and (max-width: 1080px) { 
         grid-column-start: 1;
         grid-column-end: 2;
         grid-template-columns: 15% 15% 15% 20% 25%;
-        grid-template-rows: 20% 70% 10%;
+        grid-template-rows: 20% 60% 20%;
     }
 }
 
@@ -73,7 +77,7 @@
 }
 
 #pokemon-id {
-    grid-column-start: 7;
+    grid-column-start: 6;
     grid-row: 1/2;
     rotate: -90deg;
     font-size: 48px;
@@ -173,6 +177,8 @@
     grid-column-start: 5;
     grid-column-end: 6;
     margin-top: 2em;
+    display: flex;
+    justify-content: center;
 
     @media screen and (max-width: 1080px) { 
         grid-column-start: 4;
@@ -193,6 +199,7 @@
         grid-column-end: 6;
         grid-row-start: 3;
         margin-top: -1em;
+        font-size: 8px;
     }
 }
 
@@ -210,17 +217,39 @@ ul {
     flex-direction: column;
     font-family: "Pokemon-font";
 
-    &progress {
-        height: 2em;
-        background-color: var(--color-grey);
+  
+    progress {
+      width: 100%;    
+      height: 2em;
+      background-color: var(--color-grey);
+      appearance: none;    
+      -webkit-appearance: none;
+      border: var(--border-desktop);
     }
 
+    progress[value] {
+        height: 2em;
+        background-color: var(--color-day);
+      }
+  
     @media screen and (max-width: 1080px) { 
-        grid-row-start: 2;
-        grid-row-end: 3;
-        margin-top: 0;
+      grid-row-start: 2;
+      grid-row-end: 3;
+      margin-top: 0;
     }
-}
+  }
+
+progress::-moz-progress-bar {
+    background: var(--color-pokemon-type);
+  }
+  
+  progress::-webkit-progress-bar {
+    background-color: var(--color-day);
+  }
+  
+  progress::-webkit-progress-value {
+    color: var(--color-night);
+  }
 
 #pokemon-textfield {
     display: flex;
@@ -229,36 +258,7 @@ ul {
 
 
 
-#arrow {
-    position: relative;
-    right: 2.5em;
-    top: -0.5em;
-}
-
-#go-back {
-    margin: 1em;
-}
-
-
-progress[value]x- {
-    --color:  var(--color-pokemon-type-x);
-    --background:  var(--color-day);
-    --border: 2px solid var(--color-pokemon-type-x-2);
   
-    border: 2px solid var(--color-pokemon-type-fairy-2);
-    background: var(--background);
-  }
-  progress[value]::-moz-progress-bar {
-    background: var(--color);
-  }
-
-  progress::-webkit-progress-bar {
-    background-color: var(--color-day);
-  }
-  
-  progress::-webkit-progress-value {
-    background-color: var(--color-pokemon-type);
-  }
 
   #first-evolution {
     display: flex;
@@ -281,61 +281,119 @@ progress[value]x- {
   }
 
 
-#animation-hover-2 {
+  #animation-hover-2 {
     display: none;
     position: absolute;
     top: -2em;      
     right: 1em;
     width: 100%; 
     animation: animation-hover 1s forwards;
-    z-index: 10;
+    z-index: 1;
 
     p {
+        z-index: 2;
         position: relative;
-        bottom: 5.5em;
-        left: 1em;
-        color: var(--color-night);
-        scale: 0.7;
+        bottom: 8em;
+        left: 3em;
+        color: white;
+        text-transform: uppercase;
     }
 }
+
+@supports (animation: animation-hover 1s forwards) {
+    #animation-hover-2 {
+      transform: scale(1.2);
+      transition: transform 0.3s ease;
+    }
+  }
 
 #evolutionbar-article {
     grid-row-start: 2;
     grid-column-start: 2;
     grid-column-end: 3;
-    margin-top: -4em;
-    max-height: 100%;
-    display: grid;
     gap: 5px;
+
 
     &::-webkit {
         height: 10em;
     }
 
-    #first-evolution,#second-evolution,#third-evolution {
-        display: flex;
-        justify-content: center;
-        border-radius: 2em;
-        background-color: var(--color-dark);
-        border: var(--color-day) 2px solid;
     
-
-        img:hover {
-            animation: 1s forwards shadow-scale;
-        }
-
-        img:hover ~ #animation-hover-2 {
-            display: block;
-        
-        }
-    }
 
 
     @media screen and (max-width: 1080px) { 
+        display: grid;
         grid-column-start: 1;
         grid-row-start: 3;
         margin-top: 0;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
+#first-evolution {
+    display: flex;
+    justify-content: center;
+    border-radius: 2em;
+    background-color: var(--color-dark);
+    border: var(--border-desktop);
+
+
+    img:hover {
+        animation: 1s forwards shadow-scale;
+    }
+
+    img:hover ~ #animation-hover-2 {
+        display: block;
+    
+    }
+}
+
+
+#second-evolution {
+    display: flex;
+    justify-content: center;
+    border-radius: 2em;
+    background-color: var(--color-dark);
+    border: var(--border-desktop);
+
+
+    img:hover {
+        animation: 1s forwards shadow-scale;
+    }
+
+    img:hover ~ #animation-hover-2 {
+        display: block;
+    
+    }
+}
+
+#third-evolution {
+    display: flex;
+    justify-content: center;
+    border-radius: 2em;
+    background-color: var(--color-dark);
+    border: var(--border-desktop);
+
+
+    img:hover {
+        animation: 1s forwards shadow-scale;
+    }
+
+    img:hover ~ #animation-hover-2 {
+        display: block;
+    
+    }
+}
+
+
+
+#arrow {
+    position: relative;
+    right: 2.5em;
+    top: -0.5em;
+}
+
+#go-back {
+    margin: 1em;
+}
 

@@ -128,9 +128,9 @@
 
     /* border */
 
-    --border-desktop: 2px solid var(var(--color-pokemon-type-electric));
-    --border-tablet: 1.5px solid var(var(--color-pokemon-type-electric));
-    --border-mobile: 1px solid var(var(--color-pokemon-type-electric));
+    --border-desktop: 2px solid var(--color-darkgrey);
+    --border-tablet: 1.5px solid var(--color-darkgrey);
+    --border-mobile: 1px solid var(--color-darkgrey);
 }
 
 [data-theme="dark"] {

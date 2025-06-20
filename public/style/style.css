@@ -197,7 +197,6 @@ html {
     padding: 2em;
     justify-content: center;
     object-fit: contain;
-    border: var(--border-desktop);
     position: relative;
     overflow: hidden;
     max-width: 8em;
@@ -270,6 +269,13 @@ html {
         color: var(--color-balloon);
     }
 }
+
+@supports (animation: animation-hover 1s forwards) {
+    #animation-hover-2 {
+      transform: scale(1.2);
+      transition: transform 0.3s ease;
+    }
+  }
 
 .article-head:hover #animation-hover {
     display: block;

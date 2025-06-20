@@ -2,6 +2,8 @@
 
 {% render 'views/partials/go-back.liquid' %}
 
+<body id="body-index-2">
+
 <div id="pokemon-detail">
     <article id="type-{{ pokemon.type | downcase }}" class="detail-article"> 
         <div id="header-article">
@@ -127,13 +129,13 @@
                 <img 
                 src="{{ first.image }}" 
                 alt="{{ first.name }}"
-                height="50"
-                width="50"
+                height="200"
+                width="200"
                 id="img-evolution">
               </a>
   
               <div id="animation-hover-2">
-                <img src="../assets/general/balloon.svg" alt="ballon-{{ first.name }}" width="200" height="100" loading="lazy">
+                <img src="../assets/general/balloon.svg" alt="ballon-{{ first.name }}" width="200" height="200" loading="lazy">
                 <p id="name {{ first.name }}"> {{ first.name | capitalize }}</p>
               </div>
               
@@ -141,12 +143,12 @@
                   <img 
                   src="{{ first.image }}" 
                   alt="{{ first.name }}"
-                  height="75"
-                  width="75"
+                  height="200"
+                  width="200"
                   id="img-evolution">
   
                   <div id="animation-hover-2">
-                    <img src="../assets/general/balloon.svg" alt="ballon-{{ first.name }}" width="200" height="100" loading="lazy">
+                    <img src="../assets/general/balloon.svg" alt="ballon-{{ first.name }}" width="200" height="200" loading="lazy">
                     <p id="name {{ first.name }}"> {{ first.name | capitalize }}</p>
                   </div>
   
@@ -163,7 +165,7 @@
                 <img src="{{ second.image }}" alt="{{ second.name }}" id="img-evolution">
   
                 <div id="animation-hover-2">
-                  <img src="../assets/general/balloon.svg" alt="ballon-{{ second.name }}" width="200" height="100" loading="lazy">
+                  <img src="../assets/general/balloon.svg" alt="ballon-{{ second.name }}" width="200" height="200" loading="lazy">
                   <p id="name {{ second.name }}"> {{ second.name | capitalize }}</p>
                 </div>
   
@@ -172,7 +174,7 @@
               <img src="{{ second.image }}" alt="{{ second.name }}" id="img-evolution">
   
               <div id="animation-hover-2">
-                <img src="../assets/general/balloon.svg" alt="ballon-{{ second.name }}" width="200" height="100" loading="lazy">
+                <img src="../assets/general/balloon.svg" alt="ballon-{{ second.name }}" width="200" height="200" loading="lazy">
                 <p id="name {{ second.name }}"> {{ second.name | capitalize }}</p>
               </div>
   
@@ -190,7 +192,7 @@
   
                 {% comment %} animation {% endcomment %}
                 <div id="animation-hover-2">
-                  <img src="../assets/general/balloon.svg" alt="ballon-{{ third.name }}" width="200" height="100" loading="lazy">
+                  <img src="../assets/general/balloon.svg" alt="ballon-{{ third.name }}" width="200" height="200" loading="lazy">
                   <p id="name {{ third.name }}"> {{ third.name | capitalize }}</p>
                 </div>
   
@@ -199,7 +201,7 @@
               <img src="{{ third.image }}" alt="{{ third.name }}" id="img-evolution">
   
                 <div id="animation-hover-2">
-                  <img src="../assets/general/balloon.svg" alt="ballon-{{ third.name }}" width="200" height="100" loading="lazy">
+                  <img src="../assets/general/balloon.svg" alt="ballon-{{ third.name }}" width="200" height="200" loading="lazy">
                   <p id="name {{ third.name }}"> {{ third.name | capitalize }}</p>
                 </div>
   
@@ -223,3 +225,5 @@
 <video autoplay muted loop id="video-bg-night">
     <source src="../assets/general/pokemon-background-night.mp4" type="video/mp4">
 </video>
+
+</body>
