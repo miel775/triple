@@ -9,8 +9,8 @@
 
     {% for p in pokemons %}
 
-        <a href="/pokemon/{{ forloop.index }}" id="a-head">
-            <article id="type-{{ p.type | downcase }}" class="article-head">
+        <a href="/pokemon/{{ p.id }}" class="a-head" id="type-{{ p.type | downcase }}">
+            <article  class="article-head">
 
                 {% comment %} caught pokemon {% endcomment %}
                 <div class="pokeball">

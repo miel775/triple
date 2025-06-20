@@ -29,6 +29,7 @@ app.get('/', async (req, res) => {
                 const details = await detailsResponse.json()
 
                 return {
+                    id: details.id,
                     name: details.name,
                     sprite: details.sprites.other.dream_world.front_default,
                     gif: details.sprites.other.showdown.front_default,
@@ -83,7 +84,7 @@ app.get('/pokemon/:id', async (req, res) => {
         const speciesResponse = await fetch(data.species.url);
         const speciesData = await speciesResponse.json();
 
-        // haal de date op van de evolution chain
+        // haal de data op van de evolution chain
         const evoChainResponse = await fetch(speciesData.evolution_chain.url);
         const evoChainData = await evoChainResponse.json();
       
@@ -135,49 +136,42 @@ app.get('/pokemon/:id', async (req, res) => {
 
 
 app.get('/search', async (req, res) => {
+    
     try {
+        // de input die wordt getypt in de search input
         const keyword = req.query.p?.toLowerCase() || "";
 
+        // data van de pokemons
         const response = await fetch(`${apiBase}pokemon`);
         const data = await response.json();
 
+        // resultaat van alle pokemons wanneer je iets opzoekt
         let results = data.results.filter(pokemon =>
             pokemon.name.toLowerCase().includes(keyword)
         );
 
-        // het wordt gesorteerd op goede volgorde
-        results = results.sort((first, second) => {
-            const firstName = first.name.toLowerCase();
-            const secondName = second.name.toLowerCase();
-
-            if (firstName === keyword) return -1;
-            if (secondName === keyword) return 1;
-
-            const firstStarts = firstName.startsWith(keyword);
-            const secondStarts = secondName.startsWith(keyword);
-
-            if (firstStarts && !secondStarts) return -1;
-            if (!firstStarts && secondStarts) return 1;
-
-            return firstName.localeCompare(secondName);
-        });
         // anders laat een lege liquid file zien
-
         if (results.length === 0) {
             return res.render('empty.liquid');
         }
 
+        // dit wordt weergegeven in de overview class
         const detailedResults = await Promise.all(results.map(async (pokemon) => {
             const detailedResponse = await fetch(pokemon.url);
             const details = await detailedResponse.json();
 
+            // alle informatie die identiek is aan de hoofdpagina wordt hier ook weergegeven
             return {
+                id: details.id,
                 name: details.name,
                 sprite: details.sprites.other.dream_world.front_default,
                 gif: details.sprites.other.showdown.front_default,
                 type: details.types[0].type.name
             };
         }));
+
+
+        
 
         res.render('index.liquid', {
             pokemons: detailedResults

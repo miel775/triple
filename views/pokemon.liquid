@@ -1,8 +1,7 @@
 {% render 'views/partials/head.liquid', title: ' {{ pokemon.name }} ' %}
 
-
 {% render 'views/partials/go-back.liquid' %}
-{% comment %} <a href="/ {{ pokemon-page-offset(-1) }} "></a> previous button {% endcomment %}
+
 <div id="pokemon-detail">
     <article id="type-{{ pokemon.type | downcase }}" class="detail-article"> 
         <div id="header-article">
@@ -22,7 +21,8 @@
                 alt="{{ pokemon.name }}-front"
                 width="100"
                 height="100"
-                id="pokemon-xp-avatar">
+                id="pokemon-xp-avatar"
+                loading="lazy">
                 <p id="pokemon-xp-text"> {{ pokemon.xp }} </p>
 
              </div>
@@ -33,7 +33,9 @@
                 alt="{{ pokemon.name }}-front"
                 width="100"
                 height="100"
+                loading="lazy"
                 id="pokemon-xp-avatar">
+                
                 <p id="pokemon-weight-text"> {{ pokemon.weight }} KG </p>
              </div>
             
@@ -43,6 +45,7 @@
                 src="../assets/detail/length.gif" 
                 alt="{{ pokemon.name }}-front"
                 width="100"
+                loading="lazy"
                 height="100"
                 id="pokemon-xp-avatar">
                 <p id="pokemon-length-text"> {{ pokemon.height }} CM </p>
@@ -115,98 +118,97 @@
                 <progress id="progressbar_speed"  class="progress-type-{{ pokemon.type | downcase }}" value="{{ pokemon.speed }}" max="200"> {{ pokemon.speed }} </progress>
         </div>
         
-        <div id="evolutionbar-article">
-
-        {% assign first = EvolutionChain.first %}
-        {% if first %}
-        <div id="first-evolution"
-             class="fe-type{{ first.type }}{% if EvolutionChain.activeState == 'first' %} active{% endif %}">
-          {% if EvolutionChain.activeState != 'first' %}
-            <a href="/pokemon/{{ first.name }}">
-              <img 
-              src="{{ first.image }}" 
-              alt="{{ first.name }}"
-              height="50"
-              width="50"
-              id="img-evolution">
-            </a>
-
-            <div id="animation-hover-2">
-              <img src="../assets/general/balloon.svg" alt="ballon-{{ first.name }}" width="200" height="100" loading="lazy">
-              <p id="name {{ first.name }}"> {{ first.name | capitalize }}</p>
-            </div>
-            
-          {% else %}
+        <div id="evolutionbar-article"> {% assign first = EvolutionChain.first %}
+          {% if first %}
+          <div id="first-evolution"
+               class="fe-type{{ first.type }}{% if EvolutionChain.activeState == 'first' %} active{% endif %}">
+            {% if EvolutionChain.activeState != 'first' %}
+              <a href="/pokemon/{{ first.name }}">
                 <img 
                 src="{{ first.image }}" 
                 alt="{{ first.name }}"
-                height="75"
-                width="75"
+                height="50"
+                width="50"
                 id="img-evolution">
-
-                <div id="animation-hover-2">
-                  <img src="../assets/general/balloon.svg" alt="ballon-{{ first.name }}" width="200" height="100" loading="lazy">
-                  <p id="name {{ first.name }}"> {{ first.name | capitalize }}</p>
-                </div>
-
+              </a>
+  
+              <div id="animation-hover-2">
+                <img src="../assets/general/balloon.svg" alt="ballon-{{ first.name }}" width="200" height="100" loading="lazy">
+                <p id="name {{ first.name }}"> {{ first.name | capitalize }}</p>
+              </div>
+              
+            {% else %}
+                  <img 
+                  src="{{ first.image }}" 
+                  alt="{{ first.name }}"
+                  height="75"
+                  width="75"
+                  id="img-evolution">
+  
+                  <div id="animation-hover-2">
+                    <img src="../assets/general/balloon.svg" alt="ballon-{{ first.name }}" width="200" height="100" loading="lazy">
+                    <p id="name {{ first.name }}"> {{ first.name | capitalize }}</p>
+                  </div>
+  
+            {% endif %}
+          </div>
           {% endif %}
-        </div>
-        {% endif %}
-      
-        {% assign second = EvolutionChain.second %}
-        {% if second %}
-        <div id="second-evolution"
-             class="fe-type{{ second.type }}{% if EvolutionChain.activeState == 'second' %} active{% endif %}">
-          {% if EvolutionChain.activeState != 'second' %}
-            <a href="/pokemon/{{ second.name }}">
+        
+          {% assign second = EvolutionChain.second %}
+          {% if second %}
+          <div id="second-evolution"
+               class="fe-type{{ second.type }}{% if EvolutionChain.activeState == 'second' %} active{% endif %}">
+            {% if EvolutionChain.activeState != 'second' %}
+              <a href="/pokemon/{{ second.name }}">
+                <img src="{{ second.image }}" alt="{{ second.name }}" id="img-evolution">
+  
+                <div id="animation-hover-2">
+                  <img src="../assets/general/balloon.svg" alt="ballon-{{ second.name }}" width="200" height="100" loading="lazy">
+                  <p id="name {{ second.name }}"> {{ second.name | capitalize }}</p>
+                </div>
+  
+              </a>
+            {% else %}
               <img src="{{ second.image }}" alt="{{ second.name }}" id="img-evolution">
-
+  
               <div id="animation-hover-2">
                 <img src="../assets/general/balloon.svg" alt="ballon-{{ second.name }}" width="200" height="100" loading="lazy">
                 <p id="name {{ second.name }}"> {{ second.name | capitalize }}</p>
               </div>
-
-            </a>
-          {% else %}
-            <img src="{{ second.image }}" alt="{{ second.name }}" id="img-evolution">
-
-            <div id="animation-hover-2">
-              <img src="../assets/general/balloon.svg" alt="ballon-{{ second.name }}" width="200" height="100" loading="lazy">
-              <p id="name {{ second.name }}"> {{ second.name | capitalize }}</p>
-            </div>
-
+  
+            {% endif %}
+          </div>
           {% endif %}
-        </div>
-        {% endif %}
-      
-        {% assign third = EvolutionChain.third %}
-        {% if third %}
-        <div id="third-evolution"
-             class="fe-type{{ third.type }}{% if EvolutionChain.activeState == 'third' %} active{% endif %}">
-          {% if EvolutionChain.activeState != 'third' %}
-            <a href="/pokemon/{{ third.name }}">
+        
+          {% assign third = EvolutionChain.third %}
+          {% if third %}
+          <div id="third-evolution"
+               class="fe-type{{ third.type }}{% if EvolutionChain.activeState == 'third' %} active{% endif %}">
+            {% if EvolutionChain.activeState != 'third' %}
+              <a href="/pokemon/{{ third.name }}">
+                <img src="{{ third.image }}" alt="{{ third.name }}" id="img-evolution">
+  
+                {% comment %} animation {% endcomment %}
+                <div id="animation-hover-2">
+                  <img src="../assets/general/balloon.svg" alt="ballon-{{ third.name }}" width="200" height="100" loading="lazy">
+                  <p id="name {{ third.name }}"> {{ third.name | capitalize }}</p>
+                </div>
+  
+              </a>
+            {% else %}
               <img src="{{ third.image }}" alt="{{ third.name }}" id="img-evolution">
+  
+                <div id="animation-hover-2">
+                  <img src="../assets/general/balloon.svg" alt="ballon-{{ third.name }}" width="200" height="100" loading="lazy">
+                  <p id="name {{ third.name }}"> {{ third.name | capitalize }}</p>
+                </div>
+  
+            {% endif %}
+          </div>
+          {% endif %}</div>
 
-              {% comment %} animation {% endcomment %}
-              <div id="animation-hover-2">
-                <img src="../assets/general/balloon.svg" alt="ballon-{{ third.name }}" width="200" height="100" loading="lazy">
-                <p id="name {{ third.name }}"> {{ third.name | capitalize }}</p>
-              </div>
 
-            </a>
-          {% else %}
-            <img src="{{ third.image }}" alt="{{ third.name }}" id="img-evolution">
-
-              <div id="animation-hover-2">
-                <img src="../assets/general/balloon.svg" alt="ballon-{{ third.name }}" width="200" height="100" loading="lazy">
-                <p id="name {{ third.name }}"> {{ third.name | capitalize }}</p>
-              </div>
-
-          {% endif %}
         </div>
-        {% endif %}
-      
-      </div>
     </article>
 </div>
 

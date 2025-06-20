@@ -1,26 +1,21 @@
-
 .detail-article {
     display: grid;
     width: 75%;
     height: 75%;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 70% 1fr;
     grid-template-rows: 40% 80%;
     border-radius: 3em;
-    padding: 1em;
+    padding: 2em;
 
     @media screen and (max-width: 1080px) { 
-        grid-template-columns: 100%;
         grid-template-rows: 40% 50% 10%;
     }
 }
-
 
 #pokemon-detail {
     display: flex;
     justify-content: center;
     align-items: center;
-
-
 }
 
 
@@ -206,7 +201,7 @@ ul {
 }
 
 #progressbar-article {
-    margin-top: -5em;
+    position: relative;
     padding: 1em;
     grid-row-start: 2;
     grid-column-start: 1;
@@ -244,7 +239,8 @@ ul {
     margin: 1em;
 }
 
-progress[value]-x {
+
+progress[value]x- {
     --color:  var(--color-pokemon-type-x);
     --background:  var(--color-day);
     --border: 2px solid var(--color-pokemon-type-x-2);
@@ -256,10 +252,20 @@ progress[value]-x {
     background: var(--color);
   }
 
+  progress::-webkit-progress-bar {
+    background-color: var(--color-day);
+  }
+  
+  progress::-webkit-progress-value {
+    background-color: var(--color-pokemon-type);
+  }
+
   #first-evolution {
     display: flex;
     justify-content: center;
     position: relative;
+
+
   }
 
   #second-evolution {
@@ -300,8 +306,11 @@ progress[value]-x {
     margin-top: -4em;
     max-height: 100%;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
     gap: 5px;
+
+    &::-webkit {
+        height: 10em;
+    }
 
     #first-evolution,#second-evolution,#third-evolution {
         display: flex;
@@ -309,6 +318,7 @@ progress[value]-x {
         border-radius: 2em;
         background-color: var(--color-dark);
         border: var(--color-day) 2px solid;
+    
 
         img:hover {
             animation: 1s forwards shadow-scale;
@@ -325,8 +335,6 @@ progress[value]-x {
         grid-column-start: 1;
         grid-row-start: 3;
         margin-top: 0;
-        grid-template-rows: 100%;
-        grid-template-columns: 33% 33% 33%;
     }
 }
 

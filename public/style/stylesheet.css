@@ -3,6 +3,7 @@
     color-scheme: light dark;
 
     --color-darkgrey: #474747;
+    --color-balloon: #ffb700;
 
     --color-pokemon-type-grass: #bee2b7;
     --color-pokemon-type-grass-2: #6f8a6a;
@@ -140,6 +141,7 @@
     --color-night: #acacdd;
     --color-blue: #FFCB05;
     --color-yellow: #3B5BA7;
+    --color-balloon: #ffb300;
 
     --color-pokemon-type-grass: #bee2b7;
     --color-pokemon-type-grass-2: #6f8a6a;
