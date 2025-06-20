@@ -524,7 +524,14 @@ OnRender voert deze stappen automatisch uit zodat de installatie via de url die 
 
 ## Bronnen
 [PokeAPI](https://pokeapi.co)
+
 Vecteezy
+
+[Progressbar](https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-value)
+
+[Dark/Lightmode](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme)
+
+[Assign Liquid](https://shopify.dev/docs/api/liquid/tags/assign)
 
 ## Licentie
 
