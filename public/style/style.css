@@ -72,6 +72,10 @@ html {
     @media screen and (max-width: 500px) {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    @media screen and (max-width: 350px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 
@@ -201,6 +205,16 @@ html {
     overflow: hidden;
     max-width: 8em;
     max-height: 8em;
+
+    @media screen and (max-width: 500px) {
+        max-width: 6em;
+        max-height: 6em;
+    }
+
+    @media screen and (max-width: 400px) {
+        max-width: 5em;
+        max-height: 5em;
+    }
 }
 
 #error {

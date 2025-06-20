@@ -12,6 +12,11 @@
     padding: 2em;
 
     @media screen and (max-width: 1080px) { 
+        grid-template-rows: 40% 40% 10%;
+        grid-template-columns: 100%;
+    }
+
+    @media screen and (max-width: 700px) { 
         grid-template-rows: 40% 50% 10%;
         grid-template-columns: 100%;
     }
@@ -213,7 +218,6 @@ ul {
     grid-row-start: 2;
     grid-column-start: 1;
     grid-column-end: 2;
-    display: flex;
     flex-direction: column;
     font-family: "Pokemon-font";
 
@@ -313,15 +317,22 @@ progress::-moz-progress-bar {
     grid-column-end: 3;
     gap: 5px;
 
-
-    &::-webkit {
-        height: 10em;
+    img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
-    
-
-
     @media screen and (max-width: 1080px) { 
+        display: grid;
+        grid-column-start: 1;
+        grid-row-start: 3;
+        margin-top: 0;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+
+    @media screen and (max-width: 500px) { 
         display: grid;
         grid-column-start: 1;
         grid-row-start: 3;
@@ -336,6 +347,9 @@ progress::-moz-progress-bar {
     border-radius: 2em;
     background-color: var(--color-dark);
     border: var(--border-desktop);
+    min-width: 0;
+    flex: 1 1 0;
+    max-width: 100%;
 
 
     img:hover {
@@ -343,6 +357,15 @@ progress::-moz-progress-bar {
     }
 
     img:hover ~ #animation-hover-2 {
+        display: block;
+    
+    }
+
+    img:checked {
+        animation: 1s forwards shadow-scale;
+    }
+
+    img:checked ~ #animation-hover-2 {
         display: block;
     
     }
@@ -355,13 +378,23 @@ progress::-moz-progress-bar {
     border-radius: 2em;
     background-color: var(--color-dark);
     border: var(--border-desktop);
-
+    min-width: 0;
+    flex: 1 1 0;
+    max-width: 100%;
 
     img:hover {
         animation: 1s forwards shadow-scale;
     }
 
     img:hover ~ #animation-hover-2 {
+        display: block;
+    
+    }
+    img:checked {
+        animation: 1s forwards shadow-scale;
+    }
+
+    img:checked ~ #animation-hover-2 {
         display: block;
     
     }
@@ -373,6 +406,17 @@ progress::-moz-progress-bar {
     border-radius: 2em;
     background-color: var(--color-dark);
     border: var(--border-desktop);
+    min-width: 0;
+    flex: 1 1 0;
+    max-width: 100%;
+
+    img {
+        width: 100%;
+
+        @media screen (min-width:1080px) {
+            width: 50%;
+        }
+    }
 
 
     img:hover {
@@ -380,6 +424,16 @@ progress::-moz-progress-bar {
     }
 
     img:hover ~ #animation-hover-2 {
+        display: block;
+    
+    }
+
+
+    img:checked {
+        animation: 1s forwards shadow-scale;
+    }
+
+    img:checked ~ #animation-hover-2 {
         display: block;
     
     }
