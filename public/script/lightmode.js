@@ -6,7 +6,6 @@ const videoBgNight = document.getElementById('video-bg-night');
 const currentTheme = localStorage.getItem('theme');
 
 // als de hudige theme donkere modus is dan zet colorscheme naar donker
-
 try {
     if (currentTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');

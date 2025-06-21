@@ -775,3 +775,7 @@ body.sun {
     background-color: var(--color-pokemon-type-grass-3);
   }
 }
+
+.js-only {
+  display: none;
+}
