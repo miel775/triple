@@ -9,7 +9,7 @@
 
     {% for p in pokemons %}
 
-        <a href="/pokemon/{{ p.id }}" class="a-head" id="type-{{ p.type | downcase }}">
+        <a href="/pokemon/{{ p.id }}" class="a-head" id="type-{{ p.type | downcase }}" aria-label="pokemon {{ p.name }}">
             <article  class="article-head">
 
                 {% comment %} caught pokemon {% endcomment %}
