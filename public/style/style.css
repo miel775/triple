@@ -80,6 +80,7 @@ html {
 
 
 
+
 #header {
     display: flex;
     flex-direction: column;
@@ -228,6 +229,11 @@ html {
     align-items: center;
     margin: 10em;
 }
+
+#empty {
+    display: none;
+}
+
 
 #error-h2 {
     color: var(--color-night);
